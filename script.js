@@ -12,6 +12,34 @@ const mapOffsets = [
   [0.02, -0.032],
 ];
 
+const specialWikiTitles = {
+  aba: "阿坝藏族羌族自治州",
+  altay: "阿勒泰地区",
+  dali: "大理白族自治州",
+  danzhou: "儋州市",
+  diqing: "迪庆藏族自治州",
+  ganzi: "甘孜藏族自治州",
+  gannan: "甘南藏族自治州",
+  haibei: "海北藏族自治州",
+  haidong: "海东市",
+  haixi: "海西蒙古族藏族自治州",
+  hotan: "和田地区",
+  honghe: "红河哈尼族彝族自治州",
+  hulunbuir: "呼伦贝尔市",
+  ili: "伊犁哈萨克自治州",
+  jilin: "吉林市",
+  macau: "澳门",
+  qiandongnan: "黔东南苗族侗族自治州",
+  taipei: "台北市",
+  taichung: "台中市",
+  tainan: "台南市",
+  kaohsiung: "高雄市",
+  hualien: "花莲县",
+  xishuangbanna: "西双版纳傣族自治州",
+  xiangxi: "湘西土家族苗族自治州",
+  yanbian: "延边朝鲜族自治州",
+};
+
 function city(id, name, label, center, foods, spots, options = {}) {
   return {
     id,
@@ -419,6 +447,34 @@ function buildMapPoints(raw) {
   });
 }
 
+function getWikiTitle(raw, province) {
+  if (raw.wikiTitle) {
+    return raw.wikiTitle;
+  }
+
+  if (specialWikiTitles[raw.id]) {
+    return specialWikiTitles[raw.id];
+  }
+
+  if (province.name.endsWith("市") && province.cities.length === 1) {
+    return province.name;
+  }
+
+  if (province.name.includes("香港")) {
+    return "香港";
+  }
+
+  if (province.name.includes("澳门")) {
+    return "澳门";
+  }
+
+  if (raw.name.endsWith("市") || raw.name.endsWith("州") || raw.name.endsWith("县")) {
+    return raw.name;
+  }
+
+  return `${raw.name}市`;
+}
+
 function buildCity(raw, province, index) {
   const mapPoints = buildMapPoints(raw);
   const first = mapPoints[0];
@@ -430,6 +486,7 @@ function buildCity(raw, province, index) {
     province: province.name,
     region: province.region,
     mapPoints,
+    wikiTitle: getWikiTitle(raw, province),
     image: raw.image || defaultCityImages[index % defaultCityImages.length],
     alt: raw.alt || `${raw.name}城市旅游印象`,
     intro:
@@ -512,6 +569,133 @@ function escapeHtml(value) {
   });
 }
 
+function getImageCacheKey(cityItem) {
+  return `travel-orange-city-image:${cityItem.id}:${cityItem.wikiTitle}`;
+}
+
+function readCachedCityImage(cityItem) {
+  try {
+    const cached = localStorage.getItem(getImageCacheKey(cityItem));
+    return cached ? JSON.parse(cached) : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function writeCachedCityImage(cityItem, payload) {
+  try {
+    localStorage.setItem(getImageCacheKey(cityItem), JSON.stringify(payload));
+  } catch (error) {
+    // Local files or privacy settings may block storage; the page can still use the image.
+  }
+}
+
+function applyCityImage(cityItem, imageUrl, imageTitle) {
+  if (!imageUrl) {
+    return;
+  }
+
+  cityItem.image = imageUrl;
+  cityItem.alt = `${cityItem.name}代表照片${imageTitle ? `：${imageTitle}` : ""}`;
+
+  document.querySelectorAll(`[data-city-image="${cityItem.id}"]`).forEach((image) => {
+    image.src = imageUrl;
+    image.alt = cityItem.alt;
+    image.dataset.imageState = "loaded";
+  });
+
+  if (activeCityId === cityItem.id) {
+    guideImage.src = imageUrl;
+    guideImage.alt = cityItem.alt;
+  }
+}
+
+function markCityImageSettled(cityItem) {
+  document.querySelectorAll(`[data-city-image="${cityItem.id}"]`).forEach((image) => {
+    image.dataset.imageState = "loaded";
+  });
+}
+
+function resolveWikiTitle(title, aliases) {
+  let current = title;
+
+  for (let index = 0; index < 5; index += 1) {
+    const next = aliases.get(current);
+    if (!next || next === current) {
+      return current;
+    }
+    current = next;
+  }
+
+  return current;
+}
+
+async function loadWikiImageBatch(cityBatch) {
+  const titles = cityBatch.map((cityItem) => cityItem.wikiTitle);
+  const params = new URLSearchParams({
+    action: "query",
+    format: "json",
+    origin: "*",
+    piprop: "thumbnail",
+    pithumbsize: "900",
+    prop: "pageimages",
+    redirects: "1",
+    titles: titles.join("|"),
+  });
+
+  const response = await fetch(`https://zh.wikipedia.org/w/api.php?${params.toString()}`);
+  if (!response.ok) {
+    throw new Error(`Wikipedia image request failed: ${response.status}`);
+  }
+
+  const data = await response.json();
+  const aliases = new Map();
+  const pages = Object.values(data.query?.pages || {});
+  const pagesByTitle = new Map(pages.map((page) => [page.title, page]));
+
+  (data.query?.normalized || []).forEach((item) => aliases.set(item.from, item.to));
+  (data.query?.redirects || []).forEach((item) => aliases.set(item.from, item.to));
+
+  cityBatch.forEach((cityItem) => {
+    const resolvedTitle = resolveWikiTitle(cityItem.wikiTitle, aliases);
+    const page = pagesByTitle.get(resolvedTitle);
+    const imageUrl = page?.thumbnail?.source;
+
+    if (imageUrl) {
+      const payload = {
+        imageTitle: page.title,
+        imageUrl,
+      };
+      applyCityImage(cityItem, payload.imageUrl, payload.imageTitle);
+      writeCachedCityImage(cityItem, payload);
+    } else {
+      markCityImageSettled(cityItem);
+    }
+  });
+}
+
+async function loadCityImages() {
+  const citiesNeedingImages = cities.filter((cityItem) => {
+    const cached = readCachedCityImage(cityItem);
+    if (cached?.imageUrl) {
+      applyCityImage(cityItem, cached.imageUrl, cached.imageTitle);
+      return false;
+    }
+    return true;
+  });
+
+  const batchSize = 45;
+  for (let index = 0; index < citiesNeedingImages.length; index += batchSize) {
+    const batch = citiesNeedingImages.slice(index, index + batchSize);
+    try {
+      await loadWikiImageBatch(batch);
+    } catch (error) {
+      console.warn("城市图片加载失败，保留默认图片。", error);
+      batch.forEach(markCityImageSettled);
+    }
+  }
+}
+
 function createInfoCards(items) {
   return items
     .map(
@@ -589,7 +773,14 @@ function renderCityCards() {
     .map(
       (cityItem) => `
         <button class="city-card${cityItem.id === activeCityId ? " is-active" : ""}" type="button" data-city="${cityItem.id}">
-          <img src="${cityItem.image}" alt="${cityItem.alt}" />
+          <img
+            src="${cityItem.image}"
+            alt="${cityItem.alt}"
+            data-city-image="${cityItem.id}"
+            data-image-state="loading"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          />
           <div class="card-body">
             <span>${cityItem.province} · ${cityItem.region}</span>
             <h3>${cityItem.name}</h3>
@@ -738,3 +929,4 @@ citySearch.addEventListener("input", renderCityCards);
 renderProvinceFilter();
 renderCityCards();
 renderGuide(activeCityId);
+loadCityImages();

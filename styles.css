@@ -346,6 +346,20 @@ input {
 .city-card img {
   aspect-ratio: 16 / 9;
   height: auto;
+  background: #dfe9e4;
+  transition:
+    filter 220ms ease,
+    opacity 220ms ease;
+}
+
+.city-card img[data-image-state="loading"] {
+  filter: saturate(0.8);
+  opacity: 0.72;
+}
+
+.city-card img[data-image-state="loaded"] {
+  filter: none;
+  opacity: 1;
 }
 
 .card-body {
