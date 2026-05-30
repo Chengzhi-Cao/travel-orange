@@ -359,25 +359,67 @@ button {
   overflow: hidden;
   border: 1px solid rgba(20, 132, 111, 0.2);
   border-radius: 8px;
-  background-color: #e8f1ee;
-  background-image:
-    linear-gradient(26deg, transparent 47%, rgba(47, 111, 158, 0.25) 48%, rgba(47, 111, 158, 0.25) 51%, transparent 52%),
-    linear-gradient(148deg, transparent 48%, rgba(228, 95, 43, 0.24) 49%, rgba(228, 95, 43, 0.24) 52%, transparent 53%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.55) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.55) 1px, transparent 1px);
-  background-size:
-    100% 100%,
-    100% 100%,
-    58px 58px,
-    58px 58px;
+  background: #dfe9e4;
 }
 
 .map-canvas::before {
-  content: "";
-  position: absolute;
-  inset: 18px;
-  border: 1px dashed rgba(20, 132, 111, 0.32);
-  border-radius: 8px;
+  display: none;
+}
+
+.leaflet-container {
+  width: 100%;
+  min-height: 380px;
+  color: var(--ink);
+  font-family:
+    "Inter", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial,
+    sans-serif;
+}
+
+.leaflet-container img {
+  width: auto;
+  height: auto;
+  object-fit: initial;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+}
+
+.leaflet-popup-content strong,
+.leaflet-popup-content p,
+.leaflet-popup-content a {
+  display: block;
+}
+
+.leaflet-popup-content p {
+  margin: 4px 0 8px;
+  color: var(--muted);
+}
+
+.leaflet-popup-content a {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.map-fallback {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.map-fallback-message {
+  max-width: 360px;
+  text-align: center;
+}
+
+.map-fallback-message strong {
+  display: block;
+  font-size: 1.08rem;
+}
+
+.map-fallback-message p {
+  margin: 8px 0 0;
+  color: var(--muted);
 }
 
 .map-marker {

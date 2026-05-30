@@ -35,10 +35,10 @@ const cities = [
       "冬季风大，长城日请额外准备保暖层。",
     ],
     mapPoints: [
-      { name: "故宫博物院", desc: "中轴线核心景点", lng: 116.397, lat: 39.916, x: 54, y: 45 },
-      { name: "天坛公园", desc: "适合清晨游览", lng: 116.412, lat: 39.882, x: 59, y: 68 },
-      { name: "颐和园", desc: "皇家园林与昆明湖", lng: 116.275, lat: 39.999, x: 25, y: 24 },
-      { name: "八达岭长城", desc: "经典长城路线", lng: 116.016, lat: 40.356, x: 14, y: 12 },
+      { name: "故宫博物院", desc: "中轴线核心景点", lng: 116.397, lat: 39.916 },
+      { name: "天坛公园", desc: "适合清晨游览", lng: 116.412, lat: 39.882 },
+      { name: "颐和园", desc: "皇家园林与昆明湖", lng: 116.275, lat: 39.999 },
+      { name: "八达岭长城", desc: "经典长城路线", lng: 116.016, lat: 40.356 },
     ],
   },
   {
@@ -77,10 +77,10 @@ const cities = [
       "雨天可把博物馆、美术馆和商场动线作为备选。",
     ],
     mapPoints: [
-      { name: "外滩", desc: "黄浦江经典观景带", lng: 121.49, lat: 31.239, x: 70, y: 38 },
-      { name: "武康路", desc: "梧桐街区和历史建筑", lng: 121.438, lat: 31.212, x: 33, y: 61 },
-      { name: "上海博物馆", desc: "人民广场文化核心", lng: 121.475, lat: 31.229, x: 55, y: 49 },
-      { name: "豫园", desc: "老城厢与传统园林", lng: 121.492, lat: 31.227, x: 73, y: 55 },
+      { name: "外滩", desc: "黄浦江经典观景带", lng: 121.49, lat: 31.239 },
+      { name: "武康路", desc: "梧桐街区和历史建筑", lng: 121.438, lat: 31.212 },
+      { name: "上海博物馆", desc: "人民广场文化核心", lng: 121.475, lat: 31.229 },
+      { name: "豫园", desc: "老城厢与传统园林", lng: 121.492, lat: 31.227 },
     ],
   },
   {
@@ -119,10 +119,10 @@ const cities = [
       "珠江夜游船票和登塔票建议提前确认时间段。",
     ],
     mapPoints: [
-      { name: "陈家祠", desc: "岭南建筑与工艺", lng: 113.248, lat: 23.131, x: 27, y: 32 },
-      { name: "永庆坊", desc: "西关街巷和小店", lng: 113.247, lat: 23.116, x: 30, y: 58 },
-      { name: "沙面", desc: "适合傍晚散步", lng: 113.238, lat: 23.109, x: 22, y: 70 },
-      { name: "广州塔", desc: "城市夜景地标", lng: 113.33, lat: 23.109, x: 73, y: 66 },
+      { name: "陈家祠", desc: "岭南建筑与工艺", lng: 113.248, lat: 23.131 },
+      { name: "永庆坊", desc: "西关街巷和小店", lng: 113.247, lat: 23.116 },
+      { name: "沙面", desc: "适合傍晚散步", lng: 113.238, lat: 23.109 },
+      { name: "广州塔", desc: "城市夜景地标", lng: 113.33, lat: 23.109 },
     ],
   },
   {
@@ -161,10 +161,10 @@ const cities = [
       "住三孝口、四牌楼、天鹅湖或地铁沿线，换乘会更方便。",
     ],
     mapPoints: [
-      { name: "包公园", desc: "老城历史文化核心", lng: 117.304, lat: 31.858, x: 58, y: 45 },
-      { name: "安徽博物院", desc: "适合看展和亲子游", lng: 117.227, lat: 31.82, x: 24, y: 55 },
-      { name: "天鹅湖", desc: "政务区湖景与夜景", lng: 117.224, lat: 31.819, x: 22, y: 62 },
-      { name: "三河古镇", desc: "近郊一日游", lng: 117.245, lat: 31.515, x: 46, y: 82 },
+      { name: "包公园", desc: "老城历史文化核心", lng: 117.304, lat: 31.858 },
+      { name: "安徽博物院", desc: "适合看展和亲子游", lng: 117.227, lat: 31.82 },
+      { name: "天鹅湖", desc: "政务区湖景与夜景", lng: 117.224, lat: 31.819 },
+      { name: "三河古镇", desc: "近郊一日游", lng: 117.245, lat: 31.515 },
     ],
   },
 ];
@@ -182,6 +182,10 @@ const placeList = document.querySelector("#place-list");
 const foodList = document.querySelector("#food-list");
 const tipList = document.querySelector("#tip-list");
 
+let leafletMap;
+let leafletTileLayer;
+let leafletMarkers = [];
+
 function getAmapUrl(point) {
   const position = `${point.lng},${point.lat}`;
   const params = new URLSearchParams({
@@ -192,6 +196,19 @@ function getAmapUrl(point) {
     callnative: "0",
   });
   return `https://uri.amap.com/marker?${params.toString()}`;
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => {
+    const entities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+    return entities[char];
+  });
 }
 
 function createInfoCards(items) {
@@ -231,26 +248,7 @@ function renderCityCards() {
   });
 }
 
-function renderMap(city) {
-  mapCanvas.innerHTML = city.mapPoints
-    .map((point, index) => {
-      const number = index + 1;
-      return `
-        <a
-          class="map-marker"
-          href="${getAmapUrl(point)}"
-          target="_blank"
-          rel="noreferrer"
-          style="--x: ${point.x}%; --y: ${point.y}%"
-          aria-label="在高德地图打开${point.name}"
-          title="在高德地图打开${point.name}"
-        >
-          ${number}
-        </a>
-      `;
-    })
-    .join("");
-
+function renderMapList(city) {
   mapList.innerHTML = city.mapPoints
     .map((point, index) => {
       const number = index + 1;
@@ -265,6 +263,56 @@ function renderMap(city) {
       `;
     })
     .join("");
+}
+
+function renderMap(city) {
+  renderMapList(city);
+
+  if (!window.L) {
+    mapCanvas.classList.add("map-fallback");
+    mapCanvas.innerHTML = `
+      <div class="map-fallback-message">
+        <strong>地图底图暂时没有加载出来</strong>
+        <p>请检查网络连接，或直接点击右侧景点列表在高德地图中查看位置。</p>
+      </div>
+    `;
+    return;
+  }
+
+  mapCanvas.classList.remove("map-fallback");
+
+  if (!leafletMap) {
+    leafletMap = L.map(mapCanvas, {
+      scrollWheelZoom: false,
+      zoomControl: true,
+    });
+
+    leafletTileLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: "&copy; OpenStreetMap contributors",
+    }).addTo(leafletMap);
+  } else if (!leafletMap.hasLayer(leafletTileLayer)) {
+    leafletTileLayer.addTo(leafletMap);
+  }
+
+  leafletMarkers.forEach((marker) => marker.remove());
+  leafletMarkers = city.mapPoints.map((point) => {
+    const popup = `
+      <strong>${escapeHtml(point.name)}</strong>
+      <p>${escapeHtml(point.desc)}</p>
+      <a href="${getAmapUrl(point)}" target="_blank" rel="noreferrer">在高德地图打开</a>
+    `;
+
+    return L.marker([point.lat, point.lng], {
+      title: point.name,
+    })
+      .addTo(leafletMap)
+      .bindPopup(popup);
+  });
+
+  const bounds = L.latLngBounds(city.mapPoints.map((point) => [point.lat, point.lng]));
+  leafletMap.fitBounds(bounds.pad(0.28), { maxZoom: 13 });
+  setTimeout(() => leafletMap.invalidateSize(), 80);
 }
 
 function renderGuide(cityId) {
