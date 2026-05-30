@@ -34,6 +34,12 @@ const cities = [
       "住二环附近或地铁 2/4/5/8 号线沿线会更省心。",
       "冬季风大，长城日请额外准备保暖层。",
     ],
+    mapPoints: [
+      { name: "故宫博物院", desc: "中轴线核心景点", lng: 116.397, lat: 39.916, x: 54, y: 45 },
+      { name: "天坛公园", desc: "适合清晨游览", lng: 116.412, lat: 39.882, x: 59, y: 68 },
+      { name: "颐和园", desc: "皇家园林与昆明湖", lng: 116.275, lat: 39.999, x: 25, y: 24 },
+      { name: "八达岭长城", desc: "经典长城路线", lng: 116.016, lat: 40.356, x: 14, y: 12 },
+    ],
   },
   {
     id: "shanghai",
@@ -69,6 +75,12 @@ const cities = [
       "上海地铁覆盖很广，住 1/2/10 号线附近会很方便。",
       "热门餐厅周末排队明显，正餐最好提前安排。",
       "雨天可把博物馆、美术馆和商场动线作为备选。",
+    ],
+    mapPoints: [
+      { name: "外滩", desc: "黄浦江经典观景带", lng: 121.49, lat: 31.239, x: 70, y: 38 },
+      { name: "武康路", desc: "梧桐街区和历史建筑", lng: 121.438, lat: 31.212, x: 33, y: 61 },
+      { name: "上海博物馆", desc: "人民广场文化核心", lng: 121.475, lat: 31.229, x: 55, y: 49 },
+      { name: "豫园", desc: "老城厢与传统园林", lng: 121.492, lat: 31.227, x: 73, y: 55 },
     ],
   },
   {
@@ -106,6 +118,54 @@ const cities = [
       "住公园前、北京路、体育西路附近都便于换乘。",
       "珠江夜游船票和登塔票建议提前确认时间段。",
     ],
+    mapPoints: [
+      { name: "陈家祠", desc: "岭南建筑与工艺", lng: 113.248, lat: 23.131, x: 27, y: 32 },
+      { name: "永庆坊", desc: "西关街巷和小店", lng: 113.247, lat: 23.116, x: 30, y: 58 },
+      { name: "沙面", desc: "适合傍晚散步", lng: 113.238, lat: 23.109, x: 22, y: 70 },
+      { name: "广州塔", desc: "城市夜景地标", lng: 113.33, lat: 23.109, x: 73, y: 66 },
+    ],
+  },
+  {
+    id: "hefei",
+    name: "合肥",
+    label: "科教城市 / 包公园 / 巢湖风光",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Hefei_City_Artificial_Swan_Lake.jpeg?width=1200",
+    alt: "合肥天鹅湖畔城市景观",
+    intro:
+      "合肥适合安排两到三天轻旅行：老城看包公文化，政务区看天鹅湖与博物馆，再把一天留给三河古镇或巢湖方向。",
+    facts: [
+      ["建议天数", "2-3 天"],
+      ["适合人群", "周末游、亲子、城市漫步"],
+      ["旅行节奏", "老城半日，湖区半日，古镇一日"],
+    ],
+    route: [
+      ["Day 1", "包公园 - 逍遥津 - 淮河路步行街", "从老城核心开始，白天看园林和历史，晚上在步行街解决晚餐。"],
+      ["Day 2", "安徽博物院 - 天鹅湖 - 合柴1972 - 罍街", "白天看展和湖景，傍晚去工业更新街区，晚上吃徽菜或小吃。"],
+      ["Day 3", "三河古镇或巢湖岸线", "时间充裕时安排近郊一日，古镇适合慢逛，巢湖方向适合看开阔水面。"],
+    ],
+    places: [
+      ["包公园", "包公祠、清风阁和水面连成老城经典动线，适合半天慢走。"],
+      ["安徽博物院", "了解徽州文化、青铜器和安徽历史，雨天也很好安排。"],
+      ["三河古镇", "从合肥市区出发的一日游选择，水乡街巷和小吃都集中。"],
+    ],
+    food: [
+      ["庐州烤鸭", "合肥本地代表味道，适合作为第一顿正餐。"],
+      ["三河米饺", "去三河古镇时顺路尝，外酥内软，适合做小吃。"],
+      ["徽菜", "臭鳜鱼、毛豆腐、李鸿章大杂烩都可以按口味选择。"],
+    ],
+    tips: [
+      "合肥景点分布较散，老城、政务区、近郊最好分开安排。",
+      "去三河古镇建议预留大半天，别和市区重体力景点挤在一起。",
+      "夏季午后较热，天鹅湖和巢湖岸线更适合傍晚去。",
+      "住三孝口、四牌楼、天鹅湖或地铁沿线，换乘会更方便。",
+    ],
+    mapPoints: [
+      { name: "包公园", desc: "老城历史文化核心", lng: 117.304, lat: 31.858, x: 58, y: 45 },
+      { name: "安徽博物院", desc: "适合看展和亲子游", lng: 117.227, lat: 31.82, x: 24, y: 55 },
+      { name: "天鹅湖", desc: "政务区湖景与夜景", lng: 117.224, lat: 31.819, x: 22, y: 62 },
+      { name: "三河古镇", desc: "近郊一日游", lng: 117.245, lat: 31.515, x: 46, y: 82 },
+    ],
   },
 ];
 
@@ -115,10 +175,24 @@ const guideLabel = document.querySelector("#guide-label");
 const guideTitle = document.querySelector("#guide-title");
 const guideDescription = document.querySelector("#guide-description");
 const guideFacts = document.querySelector("#guide-facts");
+const mapCanvas = document.querySelector("#map-canvas");
+const mapList = document.querySelector("#map-list");
 const routeList = document.querySelector("#route-list");
 const placeList = document.querySelector("#place-list");
 const foodList = document.querySelector("#food-list");
 const tipList = document.querySelector("#tip-list");
+
+function getAmapUrl(point) {
+  const position = `${point.lng},${point.lat}`;
+  const params = new URLSearchParams({
+    position,
+    name: point.name,
+    src: "travel-orange",
+    coordinate: "gaode",
+    callnative: "0",
+  });
+  return `https://uri.amap.com/marker?${params.toString()}`;
+}
 
 function createInfoCards(items) {
   return items
@@ -157,6 +231,42 @@ function renderCityCards() {
   });
 }
 
+function renderMap(city) {
+  mapCanvas.innerHTML = city.mapPoints
+    .map((point, index) => {
+      const number = index + 1;
+      return `
+        <a
+          class="map-marker"
+          href="${getAmapUrl(point)}"
+          target="_blank"
+          rel="noreferrer"
+          style="--x: ${point.x}%; --y: ${point.y}%"
+          aria-label="在高德地图打开${point.name}"
+          title="在高德地图打开${point.name}"
+        >
+          ${number}
+        </a>
+      `;
+    })
+    .join("");
+
+  mapList.innerHTML = city.mapPoints
+    .map((point, index) => {
+      const number = index + 1;
+      return `
+        <a class="map-item" href="${getAmapUrl(point)}" target="_blank" rel="noreferrer">
+          <span>${number}</span>
+          <div>
+            <strong>${point.name}</strong>
+            <p>${point.desc}</p>
+          </div>
+        </a>
+      `;
+    })
+    .join("");
+}
+
 function renderGuide(cityId) {
   const city = cities.find((item) => item.id === cityId) || cities[0];
 
@@ -180,6 +290,8 @@ function renderGuide(cityId) {
       `,
     )
     .join("");
+
+  renderMap(city);
 
   routeList.innerHTML = city.route
     .map(
