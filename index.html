@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Travel Orange 旅游攻略网站，提供北京、上海、广州、合肥四座城市的精选行程、美食、地图标记和出行建议。"
+      content="Travel Orange 旅游攻略网站，提供中国省会、自治区首府和直辖市的精选行程、美食、地图标记和出行建议。"
     />
     <title>Travel Orange | 城市旅游攻略</title>
     <link
@@ -43,7 +43,7 @@
           <p class="kicker">Travel Orange</p>
           <h1 id="page-title">从一座城市开始，做一份刚刚好的旅行计划</h1>
           <p>
-            选择北京、上海、广州或合肥，查看适合初次到访的路线安排、重点景点、美食清单、地图标记和交通住宿建议。
+            选择中国各省会、自治区首府和直辖市，查看适合初次到访的路线安排、重点景点、美食清单、地图标记和交通住宿建议。
           </p>
           <a class="primary-action" href="#cities">选择城市</a>
         </div>
@@ -52,8 +52,21 @@
       <section class="section city-section" id="cities" aria-labelledby="cities-title">
         <div class="section-heading">
           <p class="section-label">Cities</p>
-          <h2 id="cities-title">热门城市攻略</h2>
-          <p>点击城市卡片，即可切换查看对应的旅游攻略。</p>
+          <h2 id="cities-title">全国省会城市攻略</h2>
+          <p>点击城市卡片，即可切换查看对应攻略；也可以直接搜索城市或省份。</p>
+        </div>
+
+        <div class="city-toolbar" role="search">
+          <label class="city-search">
+            <span>搜索城市</span>
+            <input
+              id="city-search"
+              type="search"
+              placeholder="输入城市、省份或关键词"
+              autocomplete="off"
+            />
+          </label>
+          <p class="city-count" id="city-count"></p>
         </div>
 
         <div class="city-grid" id="city-grid" aria-label="城市列表"></div>
@@ -121,7 +134,7 @@
 
     <footer class="site-footer">
       <strong>Travel Orange</strong>
-      <p>北京、上海、广州、合肥四城旅游攻略示例站。</p>
+      <p>中国省会、自治区首府和直辖市旅游攻略示例站。</p>
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
