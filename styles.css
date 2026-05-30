@@ -223,6 +223,61 @@ input {
   margin: -6px 0 22px;
 }
 
+.board-tabs {
+  display: flex;
+  gap: 10px;
+  margin: -4px 0 18px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.board-tabs button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 900;
+  white-space: nowrap;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.board-tabs button:hover,
+.board-tabs button.is-active {
+  color: var(--white);
+  background: var(--orange);
+  border-color: var(--orange);
+  transform: translateY(-1px);
+}
+
+.board-tabs span {
+  display: inline-grid;
+  min-width: 26px;
+  height: 24px;
+  place-items: center;
+  padding: 0 7px;
+  color: var(--orange-dark);
+  background: #fff2ec;
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+
+.board-tabs button:hover span,
+.board-tabs button.is-active span {
+  color: var(--orange-dark);
+  background: var(--white);
+}
+
 .province-filter {
   display: flex;
   gap: 8px;

@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Travel Orange 旅游攻略网站，提供中国各省份重点旅游城市的精选行程、美食、地图标记和出行建议。"
+      content="Travel Orange 旅游攻略网站，提供中国和欧洲重点旅游城市的精选行程、美食、地图标记和出行建议。"
     />
     <title>Travel Orange | 城市旅游攻略</title>
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
-    <link rel="stylesheet" href="styles.css?v=20260530-city-images" />
+    <link rel="stylesheet" href="styles.css?v=20260530-europe" />
   </head>
   <body>
     <header class="site-header">
@@ -43,7 +43,7 @@
           <p class="kicker">Travel Orange</p>
           <h1 id="page-title">从一座城市开始，做一份刚刚好的旅行计划</h1>
           <p>
-            按省份浏览全国重点旅游城市，查看适合初次到访的路线安排、重点景点、美食清单、地图标记和交通住宿建议。
+            在中国和欧洲两个板块之间切换，按省份或国家浏览重点旅游城市，查看路线安排、重点景点、美食清单、地图标记和交通住宿建议。
           </p>
           <a class="primary-action" href="#cities">选择城市</a>
         </div>
@@ -52,14 +52,16 @@
       <section class="section city-section" id="cities" aria-labelledby="cities-title">
         <div class="section-heading">
           <p class="section-label">Cities</p>
-          <h2 id="cities-title">全国重点城市攻略</h2>
-          <p>先按省份筛选，再点击城市卡片查看对应攻略；也可以直接搜索城市、省份或关键词。</p>
+          <h2 id="cities-title">重点城市攻略</h2>
+          <p>先选择中国或欧洲板块，再按省份或国家筛选；也可以直接搜索城市、国家、省份或关键词。</p>
         </div>
+
+        <div class="board-tabs" id="board-tabs" aria-label="选择旅游板块"></div>
 
         <div
           class="province-filter"
           id="province-filter"
-          aria-label="按省份筛选城市"
+          aria-label="按省份或国家筛选城市"
         ></div>
 
         <div class="city-toolbar" role="search">
@@ -68,7 +70,7 @@
             <input
               id="city-search"
               type="search"
-              placeholder="输入城市、省份或关键词"
+              placeholder="输入城市、国家、省份或关键词"
               autocomplete="off"
             />
           </label>
@@ -140,10 +142,10 @@
 
     <footer class="site-footer">
       <strong>Travel Orange</strong>
-      <p>按省份分类的全国重点旅游城市攻略示例站。</p>
+      <p>按中国省份和欧洲国家分类的重点旅游城市攻略示例站。</p>
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="script.js?v=20260530-city-images"></script>
+    <script src="script.js?v=20260530-europe"></script>
   </body>
 </html>

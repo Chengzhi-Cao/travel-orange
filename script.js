@@ -431,6 +431,197 @@ const provinceGroups = [
   },
 ];
 
+const europeCountryGroups = [
+  {
+    name: "英国",
+    region: "西欧",
+    board: "europe",
+    cities: [
+      city("london", "伦敦", "博物馆 / 泰晤士河 / 皇家地标", [-0.128, 51.507], ["英式早餐", "炸鱼薯条", "下午茶"], [["大英博物馆", "世界级博物馆"], ["伦敦塔桥", "泰晤士河地标"], ["白金汉宫", "皇家仪式和城市经典"]]),
+      city("edinburgh", "爱丁堡", "城堡 / 皇家英里 / 苏格兰风景", [-3.188, 55.953], ["哈吉斯", "苏格兰威士忌", "黄油饼干"], [["爱丁堡城堡", "城市制高点"], ["皇家英里", "老城步行线"], ["亚瑟王座", "登高看城市"]]),
+      city("bath", "巴斯", "罗马浴场 / 乔治亚建筑 / 小城慢游", [-2.36, 51.381], ["奶油茶", "英式派", "司康"], [["罗马浴场", "古罗马遗迹"], ["皇家新月楼", "乔治亚建筑代表"], ["普尔特尼桥", "河畔地标"]]),
+      city("york", "约克", "中世纪城墙 / 大教堂 / 老街", [-1.083, 53.96], ["约克郡布丁", "热巧克力", "英式烤肉"], [["约克大教堂", "哥特式教堂"], ["肉铺街", "中世纪街巷"], ["约克城墙", "步行看老城"]]),
+    ],
+  },
+  {
+    name: "法国",
+    region: "西欧",
+    board: "europe",
+    cities: [
+      city("paris", "巴黎", "艺术博物馆 / 塞纳河 / 街区漫步", [2.352, 48.857], ["法棍", "可丽饼", "马卡龙"], [["卢浮宫", "世界级艺术博物馆"], ["埃菲尔铁塔", "巴黎天际线地标"], ["蒙马特", "山丘街区和圣心堂"]]),
+      city("lyon", "里昂", "老城 / 美食之都 / 罗马遗迹", [4.835, 45.764], ["里昂小酒馆菜", "香肠", "果仁糖挞"], [["里昂老城", "文艺复兴街区"], ["富维耶圣母院", "登高看城市"], ["半岛区", "购物和街区漫步"]]),
+      city("nice", "尼斯", "蔚蓝海岸 / 老城 / 海滨大道", [7.262, 43.71], ["尼斯沙拉", "鹰嘴豆饼", "海鲜"], [["英国人漫步大道", "海滨散步线"], ["尼斯老城", "彩色街巷和市集"], ["城堡山", "俯瞰海湾"]]),
+      city("strasbourg", "斯特拉斯堡", "小法兰西 / 大教堂 / 阿尔萨斯", [7.752, 48.573], ["酸菜香肠", "火焰薄饼", "白葡萄酒"], [["小法兰西", "水巷和木筋屋"], ["斯特拉斯堡大教堂", "哥特式地标"], ["欧洲议会", "欧洲机构建筑"]]),
+    ],
+  },
+  {
+    name: "意大利",
+    region: "南欧",
+    board: "europe",
+    cities: [
+      city("rome", "罗马", "古迹 / 教堂广场 / 意式生活", [12.496, 41.902], ["披萨", "意面", "冰淇淋"], [["罗马斗兽场", "古罗马地标"], ["梵蒂冈博物馆", "艺术和教堂"], ["特莱维喷泉", "老城步行经典点"]]),
+      city("florence", "佛罗伦萨", "文艺复兴 / 美术馆 / 托斯卡纳", [11.255, 43.769], ["佛罗伦萨牛排", "意式三明治", "红酒"], [["圣母百花大教堂", "城市天际线核心"], ["乌菲兹美术馆", "文艺复兴艺术"], ["米开朗琪罗广场", "日落俯瞰老城"]]),
+      city("venice", "威尼斯", "水城 / 运河 / 岛屿", [12.315, 45.44], ["墨鱼面", "海鲜饭", "提拉米苏"], [["圣马可广场", "威尼斯核心广场"], ["里亚托桥", "大运河地标"], ["布拉诺岛", "彩色小岛"]]),
+      city("milan", "米兰", "大教堂 / 时装 / 设计", [9.19, 45.464], ["烩饭", "炸牛排", "咖啡"], [["米兰大教堂", "哥特式城市地标"], ["埃马努埃莱二世长廊", "购物和建筑"], ["斯福尔扎城堡", "城堡和公园"]]),
+      city("naples", "那不勒斯", "披萨 / 海湾 / 庞贝门户", [14.268, 40.852], ["那不勒斯披萨", "海鲜意面", "酥皮甜点"], [["那不勒斯老城", "街巷和教堂"], ["蛋堡", "海湾地标"], ["庞贝古城", "近郊古城遗址"]]),
+    ],
+  },
+  {
+    name: "西班牙",
+    region: "南欧",
+    board: "europe",
+    cities: [
+      city("madrid", "马德里", "王宫 / 美术馆 / 广场街区", [-3.704, 40.416], ["西班牙火腿", "油条巧克力", "海鲜饭"], [["普拉多博物馆", "艺术博物馆"], ["马德里王宫", "皇家建筑"], ["太阳门广场", "市中心步行起点"]]),
+      city("barcelona", "巴塞罗那", "高迪建筑 / 海岸 / 加泰罗尼亚", [2.173, 41.385], ["塔帕斯", "海鲜饭", "加泰甜点"], [["圣家堂", "高迪建筑代表"], ["巴特罗之家", "现代主义建筑"], ["兰布拉大道", "老城步行线"]]),
+      city("seville", "塞维利亚", "王宫 / 弗拉门戈 / 安达卢西亚", [-5.984, 37.389], ["塔帕斯", "冷汤", "橙酒"], [["塞维利亚王宫", "摩尔与基督教建筑"], ["西班牙广场", "城市经典广场"], ["塞维利亚大教堂", "哥特式教堂"]]),
+      city("granada", "格拉纳达", "阿尔罕布拉宫 / 山城 / 摩尔遗产", [-3.599, 37.178], ["塔帕斯", "炖菜", "杏仁甜点"], [["阿尔罕布拉宫", "世界级宫殿遗产"], ["阿尔拜辛区", "山城白色街巷"], ["圣尼古拉斯观景台", "日落看宫殿"]]),
+      city("valencia", "瓦伦西亚", "艺术科学城 / 海岸 / 海鲜饭", [-0.376, 39.47], ["瓦伦西亚海鲜饭", "欧洽塔", "塔帕斯"], [["艺术科学城", "现代建筑群"], ["瓦伦西亚老城", "广场和市场"], ["马尔瓦罗萨海滩", "海滨散步"]]),
+    ],
+  },
+  {
+    name: "葡萄牙",
+    region: "南欧",
+    board: "europe",
+    cities: [
+      city("lisbon", "里斯本", "电车 / 山城观景台 / 大航海", [-9.139, 38.722], ["蛋挞", "鳕鱼", "海鲜饭"], [["贝伦塔", "大航海时代地标"], ["阿尔法玛", "山城老街"], ["圣乔治城堡", "俯瞰城市和河口"]]),
+      city("porto", "波尔图", "杜罗河 / 酒窖 / 彩色老城", [-8.629, 41.157], ["波特酒", "三明治", "鳕鱼"], [["路易一世大桥", "杜罗河地标"], ["莱罗书店", "老城文化点"], ["里贝拉区", "河岸彩色街区"]]),
+      city("sintra", "辛特拉", "宫殿山林 / 彩色城堡 / 近郊", [-9.381, 38.802], ["葡式甜点", "海鲜", "烤肉"], [["佩纳宫", "彩色山顶宫殿"], ["雷加莱拉庄园", "神秘花园和井"], ["辛特拉老城", "小镇街区"]]),
+    ],
+  },
+  {
+    name: "德国",
+    region: "西欧",
+    board: "europe",
+    cities: [
+      city("berlin", "柏林", "历史记忆 / 博物馆岛 / 创意街区", [13.405, 52.52], ["咖喱香肠", "烤猪肘", "啤酒"], [["勃兰登堡门", "柏林城市象征"], ["博物馆岛", "世界级博物馆群"], ["东边画廊", "柏林墙艺术"]]),
+      city("munich", "慕尼黑", "巴伐利亚 / 啤酒花园 / 王宫", [11.582, 48.135], ["白香肠", "猪肘", "啤酒"], [["玛利亚广场", "老城核心"], ["宁芬堡宫", "巴伐利亚王宫"], ["英国花园", "城市公园和啤酒花园"]]),
+      city("hamburg", "汉堡", "港口 / 仓库城 / 易北河", [9.993, 53.551], ["鱼汉堡", "海鲜", "啤酒"], [["仓库城", "红砖仓库和运河"], ["易北爱乐厅", "港口现代地标"], ["圣保利", "夜生活街区"]]),
+      city("cologne", "科隆", "大教堂 / 莱茵河 / 啤酒", [6.96, 50.938], ["科隆啤酒", "猪肘", "香肠"], [["科隆大教堂", "哥特式地标"], ["霍亨索伦桥", "莱茵河桥景"], ["老城", "广场和啤酒屋"]]),
+      city("dresden", "德累斯顿", "易北河 / 巴洛克建筑 / 美术馆", [13.737, 51.05], ["萨克森菜", "甜点", "啤酒"], [["圣母教堂", "老城地标"], ["茨温格宫", "巴洛克宫殿"], ["布吕尔平台", "易北河观景线"]]),
+    ],
+  },
+  {
+    name: "荷兰",
+    region: "西欧",
+    board: "europe",
+    cities: [
+      city("amsterdam", "阿姆斯特丹", "运河 / 美术馆 / 自行车城市", [4.904, 52.367], ["荷兰煎饼", "炸肉丸", "鲱鱼"], [["运河带", "世界遗产水网"], ["梵高博物馆", "艺术博物馆"], ["安妮之家", "历史纪念地"]]),
+      city("rotterdam", "鹿特丹", "现代建筑 / 港口 / 市集", [4.479, 51.924], ["炸肉丸", "奶酪", "海鲜"], [["立方屋", "现代建筑地标"], ["马克塔尔市场", "美食和建筑"], ["伊拉斯谟桥", "城市天际线"]]),
+      city("thehague", "海牙", "王室城市 / 美术馆 / 北海海滩", [4.3, 52.07], ["鲱鱼", "奶酪", "海鲜"], [["莫瑞泰斯皇家美术馆", "经典名画"], ["和平宫", "国际法地标"], ["席凡宁根海滩", "北海海岸"]]),
+    ],
+  },
+  {
+    name: "比利时",
+    region: "西欧",
+    board: "europe",
+    cities: [
+      city("brussels", "布鲁塞尔", "大广场 / 欧盟区 / 巧克力", [4.351, 50.847], ["华夫饼", "巧克力", "青口薯条"], [["布鲁塞尔大广场", "世界遗产广场"], ["原子球塔", "现代地标"], ["欧盟区", "欧洲机构街区"]]),
+      city("bruges", "布鲁日", "中世纪老城 / 运河 / 钟楼", [3.225, 51.209], ["巧克力", "啤酒", "华夫饼"], [["布鲁日钟楼", "老城地标"], ["市集广场", "中世纪广场"], ["爱之湖", "运河和天鹅"]]),
+      city("antwerp", "安特卫普", "大教堂 / 钻石 / 港口", [4.402, 51.219], ["薯条", "啤酒", "巧克力"], [["圣母大教堂", "城市核心教堂"], ["中央车站", "华丽车站建筑"], ["河畔博物馆", "港口和城市视野"]]),
+    ],
+  },
+  {
+    name: "瑞士",
+    region: "西欧",
+    board: "europe",
+    cities: [
+      city("zurich", "苏黎世", "湖畔城市 / 老城 / 阿尔卑斯门户", [8.541, 47.376], ["奶酪火锅", "巧克力", "苏黎世小牛肉"], [["苏黎世湖", "湖畔散步"], ["班霍夫大街", "购物和老城"], ["林登霍夫", "俯瞰老城"]]),
+      city("geneva", "日内瓦", "湖光山色 / 国际组织 / 喷泉", [6.143, 46.204], ["奶酪火锅", "巧克力", "湖鱼"], [["日内瓦湖喷泉", "城市水岸地标"], ["联合国万国宫", "国际组织路线"], ["老城", "山坡街巷"]]),
+      city("lucerne", "卢塞恩", "廊桥 / 湖山 / 瑞士小城", [8.309, 47.05], ["奶酪火锅", "巧克力", "烤香肠"], [["卡佩尔廊桥", "木桥和水塔"], ["卢塞恩湖", "湖山风景"], ["狮子纪念碑", "城市纪念地"]]),
+      city("interlaken", "因特拉肯", "雪山湖泊 / 少女峰 / 户外", [7.863, 46.686], ["奶酪火锅", "瑞士土豆饼", "巧克力"], [["少女峰区域", "雪山经典路线"], ["何维克街", "小镇主街"], ["图恩湖", "湖岸风景"]]),
+    ],
+  },
+  {
+    name: "奥地利",
+    region: "中欧",
+    board: "europe",
+    cities: [
+      city("vienna", "维也纳", "音乐 / 王宫 / 咖啡馆", [16.373, 48.208], ["炸猪排", "萨赫蛋糕", "咖啡"], [["美泉宫", "哈布斯堡王宫"], ["维也纳国家歌剧院", "音乐之都地标"], ["圣斯蒂芬大教堂", "老城核心"]]),
+      city("salzburg", "萨尔茨堡", "莫扎特 / 城堡 / 阿尔卑斯", [13.055, 47.81], ["莫扎特巧克力", "炸猪排", "啤酒"], [["萨尔茨堡城堡", "山顶城堡"], ["米拉贝尔花园", "花园和老城视野"], ["粮食胡同", "老城街巷"]]),
+      city("innsbruck", "因斯布鲁克", "雪山城市 / 金顶屋 / 滑雪", [11.404, 47.269], ["奥地利甜点", "炸猪排", "奶酪"], [["金顶屋", "老城地标"], ["北链山", "缆车看雪山"], ["玛丽亚特蕾西亚大街", "城市主街"]]),
+    ],
+  },
+  {
+    name: "捷克",
+    region: "中欧",
+    board: "europe",
+    cities: [
+      city("prague", "布拉格", "城堡 / 查理大桥 / 老城广场", [14.438, 50.076], ["烤猪肘", "捷克啤酒", "烟囱卷"], [["布拉格城堡", "城市制高点"], ["查理大桥", "伏尔塔瓦河地标"], ["老城广场", "天文钟和街区"]]),
+      city("ceskykrumlov", "捷克克鲁姆洛夫", "童话小镇 / 城堡 / 河湾", [14.315, 48.812], ["烤肉", "啤酒", "甜点"], [["克鲁姆洛夫城堡", "小镇制高点"], ["老城河湾", "彩色屋顶和河景"], ["圣维特教堂", "小镇教堂"]]),
+      city("brno", "布尔诺", "摩拉维亚 / 城堡 / 咖啡馆", [16.607, 49.195], ["摩拉维亚葡萄酒", "烤肉", "啤酒"], [["斯皮尔伯克城堡", "山丘城堡"], ["自由广场", "城市中心"], ["图根哈特别墅", "现代主义建筑"]]),
+    ],
+  },
+  {
+    name: "匈牙利",
+    region: "中欧",
+    board: "europe",
+    cities: [
+      city("budapest", "布达佩斯", "多瑙河 / 温泉 / 国会大厦", [19.04, 47.498], ["牛肉汤", "烟囱卷", "鹅肝"], [["匈牙利国会大厦", "多瑙河地标"], ["布达城堡", "山丘王宫"], ["塞切尼温泉", "经典温泉体验"]]),
+    ],
+  },
+  {
+    name: "希腊",
+    region: "南欧",
+    board: "europe",
+    cities: [
+      city("athens", "雅典", "卫城 / 古希腊 / 地中海", [23.728, 37.984], ["希腊沙拉", "烤肉卷", "酸奶"], [["雅典卫城", "古希腊核心遗址"], ["普拉卡", "老城街区"], ["宪法广场", "城市中心"]]),
+      city("santorini", "圣托里尼", "白房蓝顶 / 火山岛 / 日落", [25.461, 36.393], ["海鲜", "希腊沙拉", "葡萄酒"], [["伊亚", "日落和蓝顶教堂"], ["费拉", "悬崖小镇"], ["红沙滩", "火山海岸"]]),
+      city("thessaloniki", "塞萨洛尼基", "海滨城市 / 拜占庭遗产 / 美食", [22.944, 40.641], ["烤肉", "甜点", "海鲜"], [["白塔", "海滨地标"], ["亚里士多德广场", "城市中心"], ["上城", "老城和城墙"]]),
+    ],
+  },
+  {
+    name: "北欧",
+    region: "北欧",
+    board: "europe",
+    cities: [
+      city("copenhagen", "哥本哈根", "童话港口 / 设计 / 自行车", [12.568, 55.676], ["开放三明治", "丹麦酥", "热狗"], [["新港", "彩色港口街区"], ["小美人鱼像", "城市童话地标"], ["趣伏里公园", "老牌游乐园"]]),
+      city("oslo", "奥斯陆", "峡湾城市 / 博物馆 / 北欧建筑", [10.752, 59.913], ["三文鱼", "肉丸", "华夫饼"], [["奥斯陆歌剧院", "海滨建筑地标"], ["维格兰雕塑公园", "城市公园"], ["阿克斯胡斯城堡", "港口城堡"]]),
+      city("bergen", "卑尔根", "峡湾门户 / 彩色木屋 / 山城", [5.322, 60.392], ["海鲜", "鱼汤", "肉桂卷"], [["布吕根", "汉萨同盟木屋"], ["弗洛伊恩山", "俯瞰峡湾城市"], ["鱼市", "海鲜和港口"]]),
+      city("stockholm", "斯德哥尔摩", "群岛城市 / 老城 / 博物馆", [18.068, 59.329], ["肉丸", "三文鱼", "肉桂卷"], [["斯德哥尔摩老城", "彩色街巷"], ["瓦萨沉船博物馆", "海事博物馆"], ["市政厅", "城市地标"]]),
+      city("helsinki", "赫尔辛基", "海港城市 / 设计 / 教堂", [24.938, 60.169], ["三文鱼汤", "肉桂卷", "驯鹿肉"], [["赫尔辛基大教堂", "白色城市地标"], ["岩石教堂", "现代教堂建筑"], [" Suomenlinna要塞", "海岛要塞"]], { wikiTitle: "赫尔辛基" }),
+      city("reykjavik", "雷克雅未克", "极光门户 / 蓝湖 / 火山海岸", [-21.942, 64.146], ["羊肉汤", "热狗", "海鲜"], [["哈尔格林姆教堂", "城市天际线地标"], ["太阳航海者", "海边雕塑"], ["蓝湖", "温泉体验"]]),
+    ],
+  },
+  {
+    name: "波兰",
+    region: "中欧",
+    board: "europe",
+    cities: [
+      city("warsaw", "华沙", "老城重建 / 肖邦 / 维斯瓦河", [21.012, 52.23], ["波兰饺子", "酸汤", "炖肉"], [["华沙老城", "战后重建老城"], ["皇家城堡", "老城核心"], ["肖邦公园", "音乐和公园"]]),
+      city("krakow", "克拉科夫", "老城广场 / 城堡 / 盐矿", [19.945, 50.064], ["波兰饺子", "烟熏奶酪", "炖汤"], [["中央集市广场", "欧洲经典广场"], ["瓦维尔城堡", "王城地标"], ["维利奇卡盐矿", "近郊世界遗产"]]),
+      city("gdansk", "格但斯克", "波罗的海 / 彩色老城 / 港口", [18.646, 54.352], ["海鲜", "波兰饺子", "啤酒"], [["长街", "彩色老城主街"], ["圣玛丽教堂", "老城地标"], ["莫特拉瓦河畔", "港口风景"]]),
+    ],
+  },
+  {
+    name: "克罗地亚",
+    region: "南欧",
+    board: "europe",
+    cities: [
+      city("zagreb", "萨格勒布", "上城区 / 市集 / 中欧小城", [15.982, 45.815], ["烤肉", "奶酪卷", "咖啡"], [["圣马可教堂", "彩色屋顶地标"], ["耶拉契奇广场", "城市中心"], ["失恋博物馆", "趣味博物馆"]]),
+      city("dubrovnik", "杜布罗夫尼克", "城墙 / 亚得里亚海 / 老城", [18.094, 42.651], ["海鲜", "黑 risotto", "葡萄酒"], [["杜布罗夫尼克城墙", "老城和海景"], ["斯特拉敦大街", "老城主街"], ["洛夫里耶纳茨堡", "海边城堡"]]),
+      city("split", "斯普利特", "罗马宫殿 / 海滨 / 达尔马提亚", [16.44, 43.508], ["海鲜", "烤肉", "橄榄油"], [["戴克里先宫", "古罗马宫殿老城"], ["里瓦海滨大道", "海边散步"], ["马尔扬山", "俯瞰城市和海湾"]]),
+    ],
+  },
+  {
+    name: "爱尔兰",
+    region: "西欧",
+    board: "europe",
+    cities: [
+      city("dublin", "都柏林", "文学酒馆 / 城堡 / 河畔", [-6.26, 53.349], ["爱尔兰炖肉", "黑啤", "苏打面包"], [["三一学院", "图书馆和凯尔经"], ["都柏林城堡", "城市历史地标"], ["圣殿酒吧区", "音乐和夜生活"]]),
+      city("galway", "戈尔韦", "西海岸 / 彩色街区 / 莫赫悬崖门户", [-9.057, 53.27], ["海鲜", "牡蛎", "黑啤"], [["戈尔韦拉丁区", "彩色街巷"], ["西班牙拱门", "河口地标"], ["莫赫悬崖", "近郊海岸奇观"]]),
+    ],
+  },
+  {
+    name: "土耳其",
+    region: "欧亚",
+    board: "europe",
+    cities: [
+      city("istanbul", "伊斯坦布尔", "欧亚交汇 / 清真寺 / 海峡", [28.978, 41.008], ["烤肉", "土耳其甜点", "红茶"], [["圣索菲亚大教堂", "世界级历史建筑"], ["蓝色清真寺", "奥斯曼建筑地标"], ["博斯普鲁斯海峡", "欧亚海峡风景"]]),
+      city("cappadocia", "卡帕多奇亚", "热气球 / 洞穴酒店 / 奇岩", [34.829, 38.643], ["陶罐肉", "土耳其早餐", "葡萄酒"], [["格雷梅露天博物馆", "洞穴教堂和壁画"], ["热气球观景点", "清晨热气球"], ["地下城", "古代地下聚落"]]),
+    ],
+  },
+];
+
 function buildMapPoints(raw) {
   if (raw.mapPoints) {
     return raw.mapPoints;
@@ -454,6 +645,10 @@ function getWikiTitle(raw, province) {
 
   if (specialWikiTitles[raw.id]) {
     return specialWikiTitles[raw.id];
+  }
+
+  if (province.board === "europe") {
+    return raw.name;
   }
 
   if (province.name.endsWith("市") && province.cities.length === 1) {
@@ -483,7 +678,9 @@ function buildCity(raw, province, index) {
 
   return {
     ...raw,
+    board: province.board || "china",
     province: province.name,
+    groupType: province.board === "europe" ? "国家" : "省份",
     region: province.region,
     mapPoints,
     wikiTitle: getWikiTitle(raw, province),
@@ -493,7 +690,7 @@ function buildCity(raw, province, index) {
       raw.intro ||
       `${raw.name}是${province.name}的重点旅游城市，适合用 2-3 天把城市地标、代表景点和本地美食串成一条轻松路线。`,
     facts: raw.facts || [
-      ["所属省份", province.name],
+      [province.board === "europe" ? "所属国家" : "所属省份", province.name],
       ["所在区域", province.region],
       ["旅行关键词", raw.label],
     ],
@@ -518,13 +715,31 @@ function buildCity(raw, province, index) {
   };
 }
 
-const cities = provinceGroups.flatMap((province) =>
-  province.cities.map((item, index) => buildCity(item, province, index)),
+const travelBoards = [
+  {
+    id: "china",
+    name: "中国",
+    groupLabel: "省份",
+    groups: provinceGroups,
+  },
+  {
+    id: "europe",
+    name: "欧洲",
+    groupLabel: "国家",
+    groups: europeCountryGroups,
+  },
+];
+
+const cities = travelBoards.flatMap((board) =>
+  board.groups.flatMap((group) =>
+    group.cities.map((item, index) => buildCity(item, group, index)),
+  ),
 );
 
 const cityGrid = document.querySelector("#city-grid");
 const citySearch = document.querySelector("#city-search");
 const cityCount = document.querySelector("#city-count");
+const boardTabs = document.querySelector("#board-tabs");
 const provinceFilter = document.querySelector("#province-filter");
 const guideImage = document.querySelector("#guide-image");
 const guideLabel = document.querySelector("#guide-label");
@@ -538,7 +753,8 @@ const placeList = document.querySelector("#place-list");
 const foodList = document.querySelector("#food-list");
 const tipList = document.querySelector("#tip-list");
 
-let activeCityId = cities[0].id;
+let activeBoard = "china";
+let activeCityId = cities.find((cityItem) => cityItem.board === activeBoard).id;
 let activeProvince = "all";
 let leafletMap;
 let leafletTileLayer;
@@ -726,24 +942,74 @@ function getFilteredCities() {
   const query = citySearch.value.trim().toLowerCase();
 
   return cities.filter((cityItem) => {
+    const matchesBoard = cityItem.board === activeBoard;
     const matchesProvince = activeProvince === "all" || cityItem.province === activeProvince;
     const matchesSearch = !query || getCitySearchText(cityItem).includes(query);
-    return matchesProvince && matchesSearch;
+    return matchesBoard && matchesProvince && matchesSearch;
   });
 }
 
+function getActiveBoardConfig() {
+  return travelBoards.find((board) => board.id === activeBoard) || travelBoards[0];
+}
+
+function getBoardCities(boardId = activeBoard) {
+  return cities.filter((cityItem) => cityItem.board === boardId);
+}
+
+function renderBoardTabs() {
+  boardTabs.innerHTML = travelBoards
+    .map((board) => {
+      const count = getBoardCities(board.id).length;
+      return `
+        <button class="${activeBoard === board.id ? "is-active" : ""}" type="button" data-board="${board.id}">
+          ${board.name}
+          <span>${count}</span>
+        </button>
+      `;
+    })
+    .join("");
+
+  boardTabs.querySelectorAll("button").forEach((button) => {
+    button.addEventListener("click", () => {
+      activeBoard = button.dataset.board;
+      activeProvince = "all";
+      citySearch.value = "";
+      activeCityId = getBoardCities(activeBoard)[0].id;
+      renderBoardTabs();
+      renderProvinceFilter();
+      renderCityCards();
+      renderGuide(activeCityId);
+    });
+  });
+}
+
+function getGroupShortName(groupName) {
+  if (activeBoard === "china") {
+    return groupName
+      .replace("特别行政区", "")
+      .replace("自治区", "")
+      .replace("省", "")
+      .replace("市", "");
+  }
+
+  return groupName;
+}
+
 function renderProvinceFilter() {
+  const board = getActiveBoardConfig();
+  const boardCities = getBoardCities();
   const allButton = `
     <button class="${activeProvince === "all" ? "is-active" : ""}" type="button" data-province="all">
-      全部 <span>${cities.length}</span>
+      全部${board.groupLabel} <span>${boardCities.length}</span>
     </button>
   `;
-  const provinceButtons = provinceGroups
-    .map((province) => {
-      const count = province.cities.length;
+  const provinceButtons = board.groups
+    .map((group) => {
+      const count = group.cities.length;
       return `
-        <button class="${activeProvince === province.name ? "is-active" : ""}" type="button" data-province="${province.name}">
-          ${province.name.replace("特别行政区", "").replace("自治区", "").replace("省", "").replace("市", "")}
+        <button class="${activeProvince === group.name ? "is-active" : ""}" type="button" data-province="${group.name}">
+          ${getGroupShortName(group.name)}
           <span>${count}</span>
         </button>
       `;
@@ -762,10 +1028,11 @@ function renderProvinceFilter() {
 
 function renderCityCards() {
   const visibleCities = getFilteredCities();
-  cityCount.textContent = `显示 ${visibleCities.length} / ${cities.length} 个城市`;
+  const boardCities = getBoardCities();
+  cityCount.textContent = `显示 ${visibleCities.length} / ${boardCities.length} 个城市`;
 
   if (visibleCities.length === 0) {
-    cityGrid.innerHTML = `<p class="empty-state">没有找到匹配的城市，换个关键词或省份试试。</p>`;
+    cityGrid.innerHTML = `<p class="empty-state">没有找到匹配的城市，换个关键词或分类试试。</p>`;
     return;
   }
 
@@ -926,6 +1193,7 @@ function renderGuide(cityId) {
 }
 
 citySearch.addEventListener("input", renderCityCards);
+renderBoardTabs();
 renderProvinceFilter();
 renderCityCards();
 renderGuide(activeCityId);
