@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Travel Orange 北京旅游攻略：3 天路线、景点预约、胡同美食、住宿交通与出行提醒。"
+    />
+    <title>Travel Orange | 北京旅游攻略</title>
+    <link rel="preconnect" href="https://commons.wikimedia.org" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Travel Orange 首页">
+        <span class="brand-mark">TO</span>
+        <span>
+          <strong>Travel Orange</strong>
+          <small>travel-orange.asia</small>
+        </span>
+      </a>
+      <nav class="top-nav" aria-label="主导航">
+        <a href="#route">路线</a>
+        <a href="#places">景点</a>
+        <a href="#food">美食</a>
+        <a href="#notes">出行</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-media">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Beijing_China_Forbidden-City-08.jpg?width=1800"
+            alt="北京故宫红墙、宫门与屋脊"
+          />
+        </div>
+        <div class="hero-content">
+          <p class="kicker">北京 · 3 天初访攻略</p>
+          <h1 id="page-title">从中轴线走进北京的古今日常</h1>
+          <p class="hero-copy">
+            一条适合第一次来北京的紧凑路线：故宫与天安门、胡同与什刹海、长城与颐和园。节奏留出拍照、喝茶和绕路发现小店的时间。
+          </p>
+          <div class="hero-actions" aria-label="页面快捷操作">
+            <a class="primary-action" href="#route">查看 3 天路线</a>
+            <a class="secondary-action" href="#booking">预约提醒</a>
+          </div>
+        </div>
+        <aside class="trip-brief" aria-label="攻略概览">
+          <div>
+            <span>建议天数</span>
+            <strong>3-4 天</strong>
+          </div>
+          <div>
+            <span>适合人群</span>
+            <strong>初访 / 摄影 / 亲子</strong>
+          </div>
+          <div>
+            <span>最佳节奏</span>
+            <strong>早出发，午后慢逛</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section intro-grid" aria-labelledby="snapshot-title">
+        <div>
+          <p class="section-label">Snapshot</p>
+          <h2 id="snapshot-title">这趟北京该怎么抓重点</h2>
+        </div>
+        <div class="snapshot-list">
+          <article>
+            <span>01</span>
+            <h3>故宫放第一天</h3>
+            <p>体力最好时走中轴线，上午进宫，下午留给景山、北海或王府井。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>胡同别排太满</h3>
+            <p>南锣鼓巷适合顺路，真正舒服的是沿着钟鼓楼、什刹海慢慢走。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>长城单独半天起</h3>
+            <p>八达岭交通省心，慕田峪视野开阔；带长辈儿童优先选交通更确定的路线。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section route-section" id="route" aria-labelledby="route-title">
+        <div class="section-heading">
+          <p class="section-label">Route</p>
+          <h2 id="route-title">3 天路线安排</h2>
+          <p>
+            以住在二环附近或地铁 2/4/5/8 号线沿线为假设。点击日期切换每日重点，手机上也能直接当行程单用。
+          </p>
+        </div>
+
+        <div class="day-tabs" role="tablist" aria-label="北京三日路线">
+          <button class="day-tab is-active" type="button" role="tab" aria-selected="true" data-day="0">
+            Day 1
+          </button>
+          <button class="day-tab" type="button" role="tab" aria-selected="false" data-day="1">
+            Day 2
+          </button>
+          <button class="day-tab" type="button" role="tab" aria-selected="false" data-day="2">
+            Day 3
+          </button>
+        </div>
+
+        <div class="route-board">
+          <div class="route-photo">
+            <img
+              id="route-image"
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/20200110_Temple_of_Heaven-8.jpg?width=1400"
+              alt="天坛祈年殿与蓝色屋顶"
+            />
+          </div>
+          <div class="route-detail" id="route-panel" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section places-section" id="places" aria-labelledby="places-title">
+        <div class="section-heading">
+          <p class="section-label">Places</p>
+          <h2 id="places-title">第一次来北京，优先看这些</h2>
+          <p>保留“必看”的同时，也给每个景点配了更松弛的打开方式。</p>
+        </div>
+
+        <div class="place-grid">
+          <article class="place-card">
+            <img
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/Beijing_China_Forbidden-City-08.jpg?width=900"
+              alt="故宫红墙和宫门"
+            />
+            <div class="place-card-body">
+              <p class="tag">中轴线</p>
+              <h3>故宫博物院</h3>
+              <p>建议上午进，按午门、三大殿、东西六宫、神武门走，出门后可上景山俯瞰全景。</p>
+              <a href="https://www.dpm.org.cn/" target="_blank" rel="noreferrer">官方信息</a>
+            </div>
+          </article>
+
+          <article class="place-card">
+            <img
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/20200110_Temple_of_Heaven-8.jpg?width=900"
+              alt="天坛祈年殿"
+            />
+            <div class="place-card-body">
+              <p class="tag">晨光</p>
+              <h3>天坛公园</h3>
+              <p>清晨能看到本地人的晨练日常，祈年殿、回音壁和圜丘适合连成半日路线。</p>
+              <a href="https://www.tiantanpark.com/" target="_blank" rel="noreferrer">官方信息</a>
+            </div>
+          </article>
+
+          <article class="place-card">
+            <img
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/2014.08.19.105211_Great_Wall_Badaling.jpg?width=900"
+              alt="八达岭长城山脊"
+            />
+            <div class="place-card-body">
+              <p class="tag">远郊</p>
+              <h3>八达岭长城</h3>
+              <p>交通成熟，适合第一次去长城。旺季尽量选早班车，回城后不要再排高强度行程。</p>
+              <a href="https://www.badaling.cn/" target="_blank" rel="noreferrer">官方信息</a>
+            </div>
+          </article>
+
+          <article class="place-card">
+            <img
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/Beijing_China_Summer-Palace-02.jpg?width=900"
+              alt="颐和园昆明湖与长廊"
+            />
+            <div class="place-card-body">
+              <p class="tag">湖景</p>
+              <h3>颐和园</h3>
+              <p>昆明湖、长廊、佛香阁层次很丰富，春秋最舒服；日落前绕湖一段很值得。</p>
+              <a href="https://www.summerpalace-china.com/" target="_blank" rel="noreferrer">官方信息</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section food-section" id="food" aria-labelledby="food-title">
+        <div class="food-copy">
+          <p class="section-label">Food</p>
+          <h2 id="food-title">把一半北京味道留给街巷</h2>
+          <p>
+            北京美食不只烤鸭。建议把正餐和小吃拆开：一顿认真吃烤鸭或涮肉，剩下用豆汁、炸酱面、门钉肉饼、糖火烧和咖啡馆补足城市肌理。
+          </p>
+        </div>
+        <div class="food-list">
+          <article>
+            <h3>晚餐</h3>
+            <p>烤鸭或铜锅涮肉，提前订位，尽量避开景区门口的临时选择。</p>
+          </article>
+          <article>
+            <h3>午后</h3>
+            <p>什刹海、鼓楼东大街、五道营胡同适合散步加咖啡。</p>
+          </article>
+          <article>
+            <h3>早餐</h3>
+            <p>卤煮、炒肝、豆腐脑、烧饼夹肉，看口味选择，别把第一顿安排得太刺激。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section planner-section" id="booking" aria-labelledby="booking-title">
+        <div class="section-heading">
+          <p class="section-label">Planner</p>
+          <h2 id="booking-title">出发前检查清单</h2>
+          <p>北京热门景点预约规则会变动，页面提供的是攻略节奏，最终以各官方渠道为准。</p>
+        </div>
+
+        <div class="checklist" aria-label="出发前检查清单">
+          <label>
+            <input type="checkbox" />
+            <span>确认故宫、国博等热门场馆预约状态</span>
+          </label>
+          <label>
+            <input type="checkbox" />
+            <span>把身份证件、学生证或优惠证件放进随身包</span>
+          </label>
+          <label>
+            <input type="checkbox" />
+            <span>长城日准备防晒、保暖层和一双好走的鞋</span>
+          </label>
+          <label>
+            <input type="checkbox" />
+            <span>下载地铁图或把酒店附近站点收藏好</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="section notes-section" id="notes" aria-labelledby="notes-title">
+        <div>
+          <p class="section-label">Notes</p>
+          <h2 id="notes-title">交通与住宿建议</h2>
+        </div>
+        <div class="note-columns">
+          <article>
+            <h3>住哪里</h3>
+            <p>初访推荐二环内或二环边：前门、崇文门、东四、鼓楼、平安里一带都方便接驳地铁与老城路线。</p>
+          </article>
+          <article>
+            <h3>怎么走</h3>
+            <p>市内优先地铁，打车适合晚间短途。去长城尽量选择明确的铁路、公交或正规一日交通方案。</p>
+          </article>
+          <article>
+            <h3>怎么排</h3>
+            <p>每天只放一个重体力核心景点，其他安排给周边步行街区，旅程会更像旅行而不是赶场。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Travel Orange</strong>
+        <p>一个从北京开始的中文旅行攻略站。当前页面更新于 2026-05-29。</p>
+      </div>
+      <div class="footer-links" aria-label="图片与信息来源">
+        <a href="https://www.dpm.org.cn/" target="_blank" rel="noreferrer">故宫博物院</a>
+        <a href="https://www.badaling.cn/" target="_blank" rel="noreferrer">八达岭长城</a>
+        <a href="https://commons.wikimedia.org/wiki/File:Beijing_China_Forbidden-City-08.jpg" target="_blank" rel="noreferrer">图片署名</a>
+        <a href="https://commons.wikimedia.org/wiki/File:2014.08.19.105211_Great_Wall_Badaling.jpg" target="_blank" rel="noreferrer">长城图源</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
