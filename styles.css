@@ -223,6 +223,59 @@ input {
   margin: -6px 0 22px;
 }
 
+.province-filter {
+  display: flex;
+  gap: 8px;
+  margin: -6px 0 22px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.province-filter button {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px;
+  color: var(--muted);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 800;
+  white-space: nowrap;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.province-filter button:hover,
+.province-filter button.is-active {
+  color: var(--white);
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.province-filter span {
+  display: inline-grid;
+  min-width: 22px;
+  height: 22px;
+  place-items: center;
+  padding: 0 6px;
+  color: var(--green);
+  background: #edf8f5;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.province-filter button:hover span,
+.province-filter button.is-active span {
+  color: var(--green);
+  background: var(--white);
+}
+
 .city-search {
   display: grid;
   gap: 8px;
