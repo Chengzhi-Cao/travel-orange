@@ -1,15 +1,15 @@
 :root {
-  --ink: #1d252c;
-  --muted: #65727d;
-  --line: #d9e1e6;
-  --paper: #fbfcfb;
+  --ink: #20262d;
+  --muted: #64727e;
+  --line: #dce3e8;
+  --paper: #f7f8f6;
   --white: #ffffff;
   --orange: #e45f2b;
-  --orange-dark: #b94622;
-  --jade: #1c8a78;
-  --blue: #2d6f9f;
-  --red: #b73535;
-  --shadow: 0 18px 45px rgba(20, 35, 45, 0.14);
+  --orange-dark: #b94824;
+  --green: #14846f;
+  --blue: #2f6f9e;
+  --rose: #b63c52;
+  --shadow: 0 20px 55px rgba(28, 38, 48, 0.14);
 }
 
 * {
@@ -27,7 +27,7 @@ body {
   font-family:
     "Inter", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial,
     sans-serif;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 img {
@@ -42,8 +42,7 @@ a {
   text-decoration: none;
 }
 
-button,
-input {
+button {
   font: inherit;
 }
 
@@ -55,9 +54,9 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 14px clamp(18px, 4vw, 56px);
-  background: rgba(251, 252, 251, 0.9);
-  border-bottom: 1px solid rgba(217, 225, 230, 0.8);
+  padding: 14px clamp(18px, 4vw, 58px);
+  background: rgba(247, 248, 246, 0.92);
+  border-bottom: 1px solid rgba(220, 227, 232, 0.85);
   backdrop-filter: blur(18px);
 }
 
@@ -90,13 +89,12 @@ input {
 
 .brand small {
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
 }
 
 .top-nav {
   display: flex;
-  align-items: center;
-  gap: clamp(12px, 2vw, 28px);
+  gap: clamp(14px, 2vw, 30px);
   color: var(--muted);
   font-size: 0.95rem;
   white-space: nowrap;
@@ -115,13 +113,12 @@ input {
 
 .hero {
   position: relative;
-  min-height: calc(100svh - 72px);
+  min-height: min(720px, calc(100svh - 72px));
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
   align-items: end;
   isolation: isolate;
   overflow: hidden;
-  background: #172026;
+  background: #152129;
 }
 
 .hero::after {
@@ -130,8 +127,8 @@ input {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(10, 17, 20, 0.82), rgba(10, 17, 20, 0.34) 52%, rgba(10, 17, 20, 0.2)),
-    linear-gradient(0deg, rgba(10, 17, 20, 0.68), rgba(10, 17, 20, 0.08) 42%);
+    linear-gradient(90deg, rgba(13, 20, 26, 0.82), rgba(13, 20, 26, 0.28)),
+    linear-gradient(0deg, rgba(13, 20, 26, 0.72), rgba(13, 20, 26, 0.08) 55%);
 }
 
 .hero-media {
@@ -141,15 +138,14 @@ input {
 }
 
 .hero-content {
-  width: min(780px, calc(100% - 36px));
+  width: min(980px, calc(100% - 36px));
   margin: 0 auto;
-  padding: clamp(80px, 12vh, 150px) 0 clamp(120px, 18vh, 180px);
+  padding: clamp(80px, 13vh, 150px) 0 clamp(62px, 9vh, 96px);
   color: var(--white);
 }
 
 .kicker,
-.section-label,
-.tag {
+.section-label {
   margin: 0 0 10px;
   color: var(--orange);
   font-size: 0.78rem;
@@ -159,246 +155,208 @@ input {
 }
 
 .hero h1 {
-  max-width: 760px;
+  max-width: 890px;
   margin: 0;
-  font-size: clamp(2.45rem, 8vw, 6.3rem);
-  line-height: 0.98;
+  font-size: clamp(2.45rem, 7vw, 5.8rem);
+  line-height: 1.02;
   letter-spacing: 0;
 }
 
-.hero-copy {
-  max-width: 690px;
+.hero p:not(.kicker) {
+  max-width: 680px;
   margin: 24px 0 0;
   color: rgba(255, 255, 255, 0.88);
-  font-size: clamp(1rem, 2vw, 1.22rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 34px;
-}
-
-.primary-action,
-.secondary-action {
+.primary-action {
   display: inline-flex;
   min-height: 46px;
   align-items: center;
   justify-content: center;
-  padding: 0 18px;
-  border: 1px solid rgba(255, 255, 255, 0.38);
-  border-radius: 8px;
-  font-weight: 700;
-}
-
-.primary-action {
+  margin-top: 34px;
+  padding: 0 20px;
   color: var(--white);
   background: var(--orange);
-  border-color: var(--orange);
-}
-
-.secondary-action {
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.11);
-}
-
-.trip-brief {
-  position: absolute;
-  left: clamp(18px, 4vw, 56px);
-  right: clamp(18px, 4vw, 56px);
-  bottom: 28px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  width: min(980px, calc(100% - 36px));
-  overflow: hidden;
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  border: 1px solid var(--orange);
   border-radius: 8px;
-  background: rgba(18, 27, 32, 0.72);
-  backdrop-filter: blur(16px);
-}
-
-.trip-brief div {
-  min-width: 0;
-  padding: 16px 18px;
-}
-
-.trip-brief span,
-.trip-brief strong {
-  display: block;
-}
-
-.trip-brief span {
-  color: rgba(255, 255, 255, 0.66);
-  font-size: 0.82rem;
-}
-
-.trip-brief strong {
-  margin-top: 3px;
-  font-size: clamp(0.95rem, 2vw, 1.08rem);
+  font-weight: 800;
 }
 
 .section {
   width: min(1180px, calc(100% - 36px));
   margin: 0 auto;
-  padding: clamp(58px, 9vw, 104px) 0;
+  padding: clamp(58px, 8vw, 96px) 0;
 }
 
 .section-heading {
-  max-width: 760px;
+  max-width: 720px;
   margin-bottom: 28px;
 }
 
-.section h2 {
+.section-heading h2,
+.guide-summary h2 {
   margin: 0;
-  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 4vw, 3.35rem);
   line-height: 1.08;
   letter-spacing: 0;
 }
 
 .section-heading p:last-child,
-.food-copy p:last-child {
-  margin: 14px 0 0;
+.guide-summary p,
+.card-body p,
+.info-card p,
+.tip-list,
+.route-list p {
   color: var(--muted);
-  font-size: 1.03rem;
 }
 
-.intro-grid {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.7fr);
-  gap: clamp(28px, 5vw, 66px);
-  align-items: start;
-}
-
-.snapshot-list {
+.city-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
-.snapshot-list article,
-.food-list article,
-.note-columns article {
-  border-top: 3px solid var(--line);
-  padding-top: 18px;
-}
-
-.snapshot-list span {
-  color: var(--orange);
-  font-size: 0.84rem;
-  font-weight: 800;
-}
-
-h3 {
-  margin: 8px 0 8px;
-  font-size: 1.16rem;
-  line-height: 1.25;
-}
-
-p {
-  margin: 0;
-}
-
-.snapshot-list p,
-.place-card p,
-.food-list p,
-.note-columns p,
-.route-detail p,
-.checklist span {
-  color: var(--muted);
-}
-
-.route-section {
-  width: 100%;
-  max-width: none;
-  padding-inline: clamp(18px, 4vw, 56px);
-  background: #eef5f4;
-}
-
-.route-section .section-heading,
-.places-section .section-heading,
-.planner-section .section-heading {
-  width: min(1180px, 100%);
-  margin-inline: auto;
-}
-
-.day-tabs {
-  display: flex;
-  width: min(1180px, 100%);
-  gap: 8px;
-  margin: 0 auto 18px;
-  overflow-x: auto;
-  padding-bottom: 2px;
-}
-
-.day-tab {
-  min-width: 96px;
-  min-height: 42px;
-  padding: 0 18px;
-  color: var(--muted);
+.city-card {
+  display: grid;
+  min-height: 420px;
+  overflow: hidden;
+  text-align: left;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 8px;
+  box-shadow: none;
   cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
-.day-tab.is-active {
-  color: var(--white);
-  background: var(--jade);
-  border-color: var(--jade);
+.city-card:hover,
+.city-card.is-active {
+  border-color: rgba(228, 95, 43, 0.55);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
 }
 
-.route-board {
+.city-card img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+}
+
+.card-body {
   display: grid;
-  grid-template-columns: minmax(280px, 0.92fr) minmax(360px, 1.08fr);
-  width: min(1180px, 100%);
-  min-height: 520px;
+  gap: 10px;
+  align-content: start;
+  padding: 20px;
+}
+
+.card-body span {
+  width: fit-content;
+  padding: 4px 10px;
+  color: var(--green);
+  background: #edf8f5;
+  border: 1px solid rgba(20, 132, 111, 0.18);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.card-body h3 {
+  margin: 0;
+  font-size: 1.55rem;
+  line-height: 1.16;
+}
+
+.guide-section {
+  width: 100%;
+  background: #eef4f3;
+}
+
+.guide-hero,
+.guide-content {
+  width: min(1180px, calc(100% - 36px));
   margin: 0 auto;
+}
+
+.guide-hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(340px, 1.1fr);
+  gap: clamp(26px, 5vw, 58px);
+  align-items: center;
+  padding: clamp(58px, 8vw, 96px) 0 38px;
+}
+
+.guide-photo {
+  min-height: 430px;
   overflow: hidden;
-  background: var(--white);
-  border: 1px solid rgba(28, 138, 120, 0.22);
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
 
-.route-photo {
-  min-height: 360px;
-}
-
-.route-detail {
+.guide-summary {
   display: grid;
   gap: 20px;
-  align-content: center;
-  padding: clamp(24px, 5vw, 56px);
 }
 
-.route-detail h3 {
+.guide-summary p {
   margin: 0;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: 1.04rem;
 }
 
-.route-meta {
-  display: flex;
-  flex-wrap: wrap;
+.guide-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
 }
 
-.route-meta span {
-  display: inline-flex;
-  min-height: 34px;
-  align-items: center;
-  padding: 0 12px;
-  color: var(--jade);
-  border: 1px solid rgba(28, 138, 120, 0.25);
-  border-radius: 999px;
-  background: #f2fbf8;
-  font-size: 0.9rem;
-  font-weight: 700;
+.fact {
+  min-height: 92px;
+  padding: 14px;
+  background: var(--white);
+  border: 1px solid rgba(20, 132, 111, 0.18);
+  border-radius: 8px;
 }
 
-.timeline {
+.fact span,
+.route-list time {
+  display: block;
+  color: var(--orange-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.fact strong {
+  display: block;
+  margin-top: 4px;
+  line-height: 1.28;
+}
+
+.guide-content {
+  display: grid;
+  gap: 20px;
+  padding-bottom: clamp(64px, 9vw, 104px);
+}
+
+.guide-panel {
+  padding: clamp(22px, 4vw, 34px);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.panel-heading {
+  margin-bottom: 20px;
+}
+
+.panel-heading h3 {
+  margin: 0;
+  font-size: clamp(1.45rem, 3vw, 2.1rem);
+  line-height: 1.14;
+}
+
+.route-list {
   display: grid;
   gap: 14px;
   margin: 0;
@@ -406,154 +364,67 @@ p {
   list-style: none;
 }
 
-.timeline li {
+.route-list li {
   display: grid;
-  grid-template-columns: 74px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 86px minmax(0, 1fr);
+  gap: 16px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--line);
 }
 
-.timeline li:last-child {
-  border-bottom: 0;
+.route-list li:last-child {
   padding-bottom: 0;
+  border-bottom: 0;
 }
 
-.timeline time {
-  color: var(--orange-dark);
-  font-weight: 800;
-}
-
-.timeline strong {
+.route-list strong {
   display: block;
+  margin-bottom: 4px;
   line-height: 1.25;
 }
 
-.places-section {
-  padding-bottom: clamp(36px, 7vw, 78px);
-}
-
-.place-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.place-card {
-  overflow: hidden;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-
-.place-card img {
-  aspect-ratio: 4 / 3;
-  height: auto;
-}
-
-.place-card-body {
-  display: grid;
-  min-height: 250px;
-  align-content: start;
-  padding: 18px;
-}
-
-.place-card a {
-  align-self: end;
-  width: fit-content;
-  margin-top: 18px;
-  color: var(--blue);
-  font-weight: 800;
-}
-
-.food-section {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
-  gap: clamp(26px, 5vw, 68px);
-  align-items: start;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.food-list,
-.note-columns {
+.info-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.food-list article:nth-child(1) {
-  border-color: var(--red);
-}
-
-.food-list article:nth-child(2) {
-  border-color: var(--jade);
-}
-
-.food-list article:nth-child(3) {
-  border-color: var(--orange);
-}
-
-.planner-section {
-  width: 100%;
-  max-width: none;
-  padding-inline: clamp(18px, 4vw, 56px);
-  background: #f7f1ed;
-}
-
-.checklist {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
-  width: min(1180px, 100%);
-  margin: 0 auto;
 }
 
-.checklist label {
-  display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
-  gap: 12px;
-  align-items: start;
-  min-height: 116px;
+.info-card {
+  min-height: 148px;
   padding: 18px;
-  background: var(--white);
-  border: 1px solid rgba(228, 95, 43, 0.22);
-  border-radius: 8px;
-  cursor: pointer;
+  border-top: 3px solid var(--green);
+  background: #fbfcfb;
 }
 
-.checklist input {
-  width: 18px;
-  height: 18px;
-  margin-top: 3px;
-  accent-color: var(--orange);
-}
-
-.notes-section {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
-  gap: clamp(28px, 5vw, 66px);
-}
-
-.note-columns article:nth-child(1) {
+.info-card:nth-child(2) {
   border-color: var(--blue);
 }
 
-.note-columns article:nth-child(2) {
-  border-color: var(--jade);
+.info-card:nth-child(3) {
+  border-color: var(--rose);
 }
 
-.note-columns article:nth-child(3) {
-  border-color: var(--orange);
+.info-card h4 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+  line-height: 1.26;
+}
+
+.tip-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 22px;
+  margin: 0;
+  padding-left: 20px;
 }
 
 .site-footer {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
-  padding: 30px clamp(18px, 4vw, 56px);
+  gap: 20px;
+  padding: 30px clamp(18px, 4vw, 58px);
   color: rgba(255, 255, 255, 0.78);
-  background: #1d252c;
+  background: #20262d;
 }
 
 .site-footer strong {
@@ -561,42 +432,26 @@ p {
 }
 
 .site-footer p {
-  margin-top: 6px;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 12px 18px;
-  text-align: right;
-}
-
-.footer-links a {
-  color: var(--white);
-  font-weight: 700;
+  margin: 0;
 }
 
 @media (max-width: 980px) {
-  .intro-grid,
-  .food-section,
-  .notes-section {
+  .city-grid,
+  .guide-hero,
+  .info-grid {
     grid-template-columns: 1fr;
   }
 
-  .snapshot-list,
-  .food-list,
-  .note-columns {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .city-grid {
+    max-width: 720px;
   }
 
-  .route-board {
-    grid-template-columns: 1fr;
+  .city-card {
+    min-height: 0;
   }
 
-  .place-grid,
-  .checklist {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .guide-photo {
+    min-height: 340px;
   }
 }
 
@@ -614,50 +469,23 @@ p {
   }
 
   .hero {
-    min-height: 780px;
-  }
-
-  .hero-content {
-    width: calc(100% - 36px);
-    padding-top: 72px;
-    padding-bottom: 260px;
+    min-height: 680px;
   }
 
   .hero h1 {
-    font-size: clamp(2.2rem, 13vw, 4rem);
+    font-size: clamp(2.25rem, 13vw, 3.9rem);
   }
 
-  .trip-brief {
-    grid-template-columns: 1fr;
-    bottom: 18px;
-  }
-
-  .snapshot-list,
-  .food-list,
-  .note-columns,
-  .place-grid,
-  .checklist {
+  .guide-facts,
+  .tip-list {
     grid-template-columns: 1fr;
   }
 
-  .route-board {
-    min-height: 0;
-  }
-
-  .route-photo {
-    min-height: 260px;
-  }
-
-  .timeline li {
-    grid-template-columns: 58px minmax(0, 1fr);
+  .route-list li {
+    grid-template-columns: 64px minmax(0, 1fr);
   }
 
   .site-footer {
     flex-direction: column;
-  }
-
-  .footer-links {
-    justify-content: flex-start;
-    text-align: left;
   }
 }
