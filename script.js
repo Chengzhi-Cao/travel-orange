@@ -5,6 +5,92 @@ const defaultCityImages = [
   "https://commons.wikimedia.org/wiki/Special:FilePath/Hefei_City_Artificial_Swan_Lake.jpeg?width=1200",
 ];
 
+const defaultFoodPhotos = [
+  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=900&q=80",
+];
+
+const foodWikiTitleAliases = {
+  炸酱面: "炸酱面",
+  铜锅涮肉: "涮羊肉",
+  煎饼果子: "煎饼馃子",
+  狗不理包子: "狗不理包子",
+  麻花: "麻花",
+  小笼包: "小笼包",
+  生煎: "生煎馒头",
+  锅贴: "锅贴",
+  叉烧: "叉烧",
+  烧鹅: "烧鹅",
+  肠粉: "肠粉",
+  早茶: "广式早茶",
+  火锅: "火锅",
+  酸辣粉: "酸辣粉",
+  小面: "重庆小面",
+  担担面: "担担面",
+  钟水饺: "钟水饺",
+  龙抄手: "龙抄手",
+  肉夹馍: "肉夹馍",
+  羊肉泡馍: "羊肉泡馍",
+  凉皮: "凉皮",
+  热干面: "热干面",
+  豆皮: "三鲜豆皮",
+  臭豆腐: "臭豆腐",
+  糖油粑粑: "糖油粑粑",
+  米粉: "米粉",
+  螺蛳粉: "螺蛳粉",
+  桂林米粉: "桂林米粉",
+  过桥米线: "过桥米线",
+  汽锅鸡: "汽锅鸡",
+  宣威火腿: "宣威火腿",
+  手把肉: "手把肉",
+  烧麦: "烧卖",
+  奶茶: "蒙古奶茶",
+  锅包肉: "锅包肉",
+  红肠: "哈尔滨红肠",
+  冷面: "冷面",
+  海鲜: "海鲜",
+  沙茶面: "沙茶面",
+  佛跳墙: "佛跳墙",
+  肉燕: "肉燕",
+  鸭血粉丝汤: "鸭血粉丝汤",
+  盐水鸭: "南京盐水鸭",
+  西湖醋鱼: "西湖醋鱼",
+  片儿川: "片儿川",
+  徽州毛豆腐: "毛豆腐",
+  庐州烤鸭: "庐州烤鸭",
+  瓦罐汤: "瓦罐汤",
+  拌粉: "南昌拌粉",
+  烤鱼: "烤鱼",
+  胡辣汤: "胡辣汤",
+  烩面: "河南烩面",
+  手抓饭: "抓饭",
+  大盘鸡: "新疆大盘鸡",
+  拉条子: "拉条子",
+  酥油茶: "酥油茶",
+  青稞酒: "青稞酒",
+  牦牛肉: "牦牛肉",
+  英式下午茶: "下午茶",
+  炸鱼薯条: "炸鱼薯条",
+  可颂: "可颂",
+  马卡龙: "马卡龙",
+  鹅肝: "鹅肝",
+  意大利面: "意大利面",
+  披萨: "披萨",
+  提拉米苏: "提拉米苏",
+  海鲜饭: "西班牙海鲜饭",
+  塔帕斯: "塔帕斯",
+  蛋挞: "葡式蛋挞",
+  香肠: "香肠",
+  啤酒: "啤酒",
+  华夫饼: "华夫饼",
+  巧克力: "巧克力",
+  奶酪火锅: "奶酪火锅",
+  炸肉排: "维也纳炸肉排",
+  烤肉: "烤肉",
+  红茶: "土耳其茶",
+};
+
 const mapOffsets = [
   [0, 0],
   [0.035, 0.018],
@@ -743,19 +829,126 @@ const europeCountryGroups = [
   },
 ];
 
+const reservationRules = [
+  {
+    label: "需预约",
+    note: "热门场馆或限流景点，建议提前在官方渠道实名预约。",
+    keywords: [
+      "故宫",
+      "博物馆",
+      "美术馆",
+      "科技馆",
+      "纪念馆",
+      "展览",
+      "石窟",
+      "兵马俑",
+      "布达拉宫",
+      "三星堆",
+      "大熊猫",
+      "迪士尼",
+      "环球",
+      "卢浮宫",
+      "大英博物馆",
+      "乌菲兹",
+      "梵蒂冈",
+      "圣家堂",
+      "阿尔罕布拉",
+      "安妮之家",
+      "凡尔赛",
+      "斗兽场",
+      "地下城",
+    ],
+  },
+  {
+    label: "提前购票",
+    note: "旺季排队和分时入园较常见，出发前先确认门票与开放时段。",
+    keywords: [
+      "长城",
+      "宫殿",
+      "城堡",
+      "教堂",
+      "清真寺",
+      "修道院",
+      "古城",
+      "古镇",
+      "国家公园",
+      "世界遗产",
+      "景区",
+      "温泉",
+      "滑雪",
+      "缆车",
+      "峡谷",
+      "瀑布",
+      "洞穴",
+      "洞窟",
+      "观景台",
+      "剧院",
+      "塔",
+    ],
+  },
+];
+
+function normalizeReservation(value) {
+  if (!value) {
+    return null;
+  }
+
+  if (typeof value === "string") {
+    return {
+      label: "需预约",
+      note: value,
+    };
+  }
+
+  if (Array.isArray(value)) {
+    return {
+      label: value[0] || "需预约",
+      note: value[1] || "建议提前确认预约或购票规则。",
+    };
+  }
+
+  return {
+    label: value.label || "需预约",
+    note: value.note || "建议提前确认预约或购票规则。",
+  };
+}
+
+function getReservationStatus(point) {
+  if (point.reservation === false) {
+    return null;
+  }
+
+  const explicit = normalizeReservation(point.reservation);
+  if (explicit) {
+    return explicit;
+  }
+
+  const text = `${point.name} ${point.desc}`;
+  const rule = reservationRules.find((item) =>
+    item.keywords.some((keyword) => text.includes(keyword)),
+  );
+
+  return rule ? { label: rule.label, note: rule.note } : null;
+}
+
+function decorateMapPoint(point) {
+  const reservation = getReservationStatus(point);
+  return reservation ? { ...point, reservation } : point;
+}
+
 function buildMapPoints(raw) {
   if (raw.mapPoints) {
-    return raw.mapPoints;
+    return raw.mapPoints.map(decorateMapPoint);
   }
 
   return raw.spots.map(([name, desc], index) => {
     const [lngOffset, latOffset] = mapOffsets[index % mapOffsets.length];
-    return {
+    return decorateMapPoint({
       name,
       desc,
       lng: Number((raw.center[0] + lngOffset).toFixed(3)),
       lat: Number((raw.center[1] + latOffset).toFixed(3)),
-    };
+    });
   });
 }
 
@@ -1064,6 +1257,7 @@ const mapList = document.querySelector("#map-list");
 const routeList = document.querySelector("#route-list");
 const placeList = document.querySelector("#place-list");
 const foodList = document.querySelector("#food-list");
+const weatherContent = document.querySelector("#weather-content");
 const tipList = document.querySelector("#tip-list");
 
 let activeBoard = "china";
@@ -1072,6 +1266,7 @@ let activeProvince = "all";
 let leafletMap;
 let leafletTileLayer;
 let leafletMarkers = [];
+let weatherRequestId = 0;
 
 function getAmapUrl(point) {
   const position = `${point.lng},${point.lat}`;
@@ -1225,16 +1420,203 @@ async function loadCityImages() {
   }
 }
 
-function createInfoCards(items) {
+function getFoodWikiTitle(foodName) {
+  const normalized = foodName.replace(/[（(].*?[）)]/g, "").trim();
+  return foodWikiTitleAliases[foodName] || foodWikiTitleAliases[normalized] || normalized;
+}
+
+function getFoodImageCacheKey(foodName) {
+  return `travel-orange-food-image:v2:${getFoodWikiTitle(foodName)}`;
+}
+
+function readCachedFoodImage(foodName) {
+  try {
+    const cached = localStorage.getItem(getFoodImageCacheKey(foodName));
+    return cached ? JSON.parse(cached) : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function writeCachedFoodImage(foodName, payload) {
+  try {
+    localStorage.setItem(getFoodImageCacheKey(foodName), JSON.stringify(payload));
+  } catch (error) {
+    // The visual fallback still keeps the food card usable.
+  }
+}
+
+function getFoodFallbackPhoto(index) {
+  return defaultFoodPhotos[index % defaultFoodPhotos.length];
+}
+
+function applyFoodImage(cityItem, foodName, imageUrl, imageTitle) {
+  if (!imageUrl) {
+    return;
+  }
+
+  document.querySelectorAll("[data-food-title]").forEach((image) => {
+    if (image.dataset.foodCity !== cityItem.id || image.dataset.foodTitle !== foodName) {
+      return;
+    }
+
+    image.src = imageUrl;
+    image.alt = `${foodName}照片${imageTitle ? `，${imageTitle}` : ""}`;
+    image.dataset.imageState = "loaded";
+  });
+}
+
+function markFoodImageSettled(cityItem, foodName) {
+  document.querySelectorAll("[data-food-title]").forEach((image) => {
+    if (image.dataset.foodCity === cityItem.id && image.dataset.foodTitle === foodName) {
+      image.dataset.imageState = "loaded";
+    }
+  });
+}
+
+async function loadFoodImageBatch(cityItem, foodNames) {
+  const requestsByTitle = new Map();
+  foodNames.forEach((foodName) => {
+    const title = getFoodWikiTitle(foodName);
+    if (!requestsByTitle.has(title)) {
+      requestsByTitle.set(title, []);
+    }
+    requestsByTitle.get(title).push(foodName);
+  });
+
+  const params = new URLSearchParams({
+    action: "query",
+    format: "json",
+    origin: "*",
+    piprop: "thumbnail",
+    pithumbsize: "700",
+    prop: "pageimages",
+    redirects: "1",
+    titles: Array.from(requestsByTitle.keys()).join("|"),
+  });
+
+  const response = await fetch(`https://zh.wikipedia.org/w/api.php?${params.toString()}`);
+  if (!response.ok) {
+    throw new Error(`Food image request failed: ${response.status}`);
+  }
+
+  const data = await response.json();
+  const aliases = new Map();
+  const pages = Object.values(data.query?.pages || {});
+  const pagesByTitle = new Map(pages.map((page) => [page.title, page]));
+
+  (data.query?.normalized || []).forEach((item) => aliases.set(item.from, item.to));
+  (data.query?.redirects || []).forEach((item) => aliases.set(item.from, item.to));
+
+  requestsByTitle.forEach((foodNamesForTitle, title) => {
+    const resolvedTitle = resolveWikiTitle(title, aliases);
+    const page = pagesByTitle.get(resolvedTitle);
+    const imageUrl = page?.thumbnail?.source;
+
+    foodNamesForTitle.forEach((foodName) => {
+      if (imageUrl) {
+        const payload = {
+          imageTitle: page.title,
+          imageUrl,
+        };
+        applyFoodImage(cityItem, foodName, payload.imageUrl, payload.imageTitle);
+        writeCachedFoodImage(foodName, payload);
+      } else {
+        markFoodImageSettled(cityItem, foodName);
+      }
+    });
+  });
+}
+
+async function loadFoodImages(cityItem) {
+  const foodNames = cityItem.food.map((item) => normalizeInfoItem(item).title);
+  const foodNamesNeedingImages = foodNames.filter((foodName) => {
+    const cached = readCachedFoodImage(foodName);
+    if (cached?.imageUrl) {
+      applyFoodImage(cityItem, foodName, cached.imageUrl, cached.imageTitle);
+      return false;
+    }
+    return true;
+  });
+
+  if (foodNamesNeedingImages.length === 0) {
+    return;
+  }
+
+  try {
+    await loadFoodImageBatch(cityItem, [...new Set(foodNamesNeedingImages)]);
+  } catch (error) {
+    console.warn("美食图片加载失败，保留默认食物照片。", error);
+    foodNamesNeedingImages.forEach((foodName) => markFoodImageSettled(cityItem, foodName));
+  }
+}
+
+function normalizeInfoItem(item) {
+  if (Array.isArray(item)) {
+    const meta = item[2] && typeof item[2] === "object" ? item[2] : {};
+    return {
+      title: item[0],
+      text: item[1],
+      ...meta,
+    };
+  }
+
+  return item;
+}
+
+function createInfoCards(items, options = {}) {
+  const { cityItem, type = "default" } = options;
+
   return items
-    .map(
-      ([title, text]) => `
-        <article class="info-card">
-          <h4>${title}</h4>
-          <p>${text}</p>
+    .map((item, index) => {
+      const info = normalizeInfoItem(item);
+      const reservation =
+        type === "place"
+          ? info.reservation || getReservationStatus({ name: info.title, desc: info.text || "" })
+          : null;
+      const isFood = type === "food";
+      const cardClass = [
+        "info-card",
+        isFood ? "food-card" : "",
+        reservation ? "has-reservation" : "",
+      ]
+        .filter(Boolean)
+        .join(" ");
+      const foodImage = isFood
+        ? `
+          <figure class="food-photo">
+            <img
+              src="${info.image || getFoodFallbackPhoto(index)}"
+              alt="${escapeHtml(info.title)}照片"
+              data-food-city="${escapeHtml(cityItem.id)}"
+              data-food-title="${escapeHtml(info.title)}"
+              data-image-state="loading"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+            />
+          </figure>
+        `
+        : "";
+      const reservationMarkup = reservation
+        ? `
+          <div class="reservation-note">
+            <span>${escapeHtml(reservation.label)}</span>
+            <small>${escapeHtml(reservation.note)}</small>
+          </div>
+        `
+        : "";
+
+      return `
+        <article class="${cardClass}">
+          ${foodImage}
+          <div class="info-card-body">
+            <h4>${escapeHtml(info.title)}</h4>
+            <p>${escapeHtml(info.text)}</p>
+            ${reservationMarkup}
+          </div>
         </article>
-      `,
-    )
+      `;
+    })
     .join("");
 }
 
@@ -1389,8 +1771,12 @@ function renderMapList(cityItem) {
         <a class="map-item" href="${getAmapUrl(point)}" target="_blank" rel="noreferrer">
           <span>${number}</span>
           <div>
-            <strong>${point.name}</strong>
-            <p>${point.desc}</p>
+            <strong>
+              ${escapeHtml(point.name)}
+              ${point.reservation ? `<em>${escapeHtml(point.reservation.label)}</em>` : ""}
+            </strong>
+            <p>${escapeHtml(point.desc)}</p>
+            ${point.reservation ? `<small>${escapeHtml(point.reservation.note)}</small>` : ""}
           </div>
         </a>
       `;
@@ -1443,6 +1829,11 @@ function renderMap(cityItem) {
     const popup = `
       <strong>${escapeHtml(point.name)}</strong>
       <p>${escapeHtml(point.desc)}</p>
+      ${
+        point.reservation
+          ? `<p class="popup-reservation">${escapeHtml(point.reservation.label)}：${escapeHtml(point.reservation.note)}</p>`
+          : ""
+      }
       <a href="${getAmapUrl(point)}" target="_blank" rel="noreferrer">在高德地图打开</a>
     `;
 
@@ -1457,6 +1848,234 @@ function renderMap(cityItem) {
   const bounds = L.latLngBounds(cityItem.mapPoints.map((point) => [point.lat, point.lng]));
   leafletMap.fitBounds(bounds.pad(0.28), { maxZoom: 13 });
   setTimeout(() => leafletMap.invalidateSize(), 80);
+}
+
+const weatherCodeInfo = {
+  0: ["晴", "晴朗"],
+  1: ["晴", "少云"],
+  2: ["云", "多云"],
+  3: ["阴", "阴天"],
+  45: ["雾", "有雾"],
+  48: ["雾", "雾凇"],
+  51: ["雨", "小毛毛雨"],
+  53: ["雨", "中等毛毛雨"],
+  55: ["雨", "强毛毛雨"],
+  61: ["雨", "小雨"],
+  63: ["雨", "中雨"],
+  65: ["雨", "大雨"],
+  71: ["雪", "小雪"],
+  73: ["雪", "中雪"],
+  75: ["雪", "大雪"],
+  80: ["雨", "阵雨"],
+  81: ["雨", "较强阵雨"],
+  82: ["雨", "强阵雨"],
+  95: ["雷", "雷阵雨"],
+  96: ["雷", "雷雨伴冰雹"],
+  99: ["雷", "强雷雨伴冰雹"],
+};
+
+function getWeatherInfo(code) {
+  return weatherCodeInfo[Number(code)] || ["变", "天气变化"];
+}
+
+function formatWeatherValue(value, unit = "") {
+  const number = Number(value);
+  if (!Number.isFinite(number)) {
+    return "--";
+  }
+
+  return `${Math.round(number)}${unit}`;
+}
+
+function getWeatherCacheKey(cityItem) {
+  return `travel-orange-weather:v1:${cityItem.id}`;
+}
+
+function readCachedWeather(cityItem) {
+  try {
+    const cached = localStorage.getItem(getWeatherCacheKey(cityItem));
+    const payload = cached ? JSON.parse(cached) : null;
+    const cacheMinutes = 30 * 60 * 1000;
+    if (payload?.data && Date.now() - payload.savedAt < cacheMinutes) {
+      return payload.data;
+    }
+  } catch (error) {
+    return null;
+  }
+
+  return null;
+}
+
+function writeCachedWeather(cityItem, data) {
+  try {
+    localStorage.setItem(
+      getWeatherCacheKey(cityItem),
+      JSON.stringify({
+        data,
+        savedAt: Date.now(),
+      }),
+    );
+  } catch (error) {
+    // Weather can still render from the live response when storage is unavailable.
+  }
+}
+
+function formatWeatherDate(value) {
+  if (!value) {
+    return "--";
+  }
+
+  return new Intl.DateTimeFormat("zh-CN", {
+    month: "numeric",
+    day: "numeric",
+    weekday: "short",
+  }).format(new Date(`${value}T00:00:00`));
+}
+
+function getWeatherAdvice(current) {
+  const code = Number(current.weather_code);
+  const temperature = Number(current.temperature_2m);
+  const wind = Number(current.wind_speed_10m);
+
+  if ((code >= 51 && code <= 67) || (code >= 80 && code <= 99)) {
+    return "有降水迹象，户外景点和夜景点建议带伞并预留室内备选。";
+  }
+
+  if (code >= 71 && code <= 77) {
+    return "有降雪迹象，山地、古城石板路和桥面要注意防滑。";
+  }
+
+  if (Number.isFinite(temperature) && temperature >= 31) {
+    return "气温偏高，把博物馆、商场和室内餐厅穿插到中午前后更舒服。";
+  }
+
+  if (Number.isFinite(temperature) && temperature <= 5) {
+    return "气温偏低，夜景和早晨行程建议加外套，减少长时间排队。";
+  }
+
+  if (Number.isFinite(wind) && wind >= 28) {
+    return "风力偏强，江边、海边、观景台和缆车项目出发前再确认开放情况。";
+  }
+
+  return "天气整体适合城市步行，热门景点仍建议按预约时段安排行程。";
+}
+
+async function fetchWeather(cityItem) {
+  const [longitude, latitude] = cityItem.center;
+  const params = new URLSearchParams({
+    latitude,
+    longitude,
+    current:
+      "temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m",
+    daily: "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",
+    forecast_days: "3",
+    timezone: "auto",
+  });
+  const response = await fetch(`https://api.open-meteo.com/v1/forecast?${params.toString()}`);
+
+  if (!response.ok) {
+    throw new Error(`Weather request failed: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+function renderWeatherLoading(cityItem) {
+  weatherContent.innerHTML = `
+    <div class="weather-loading">
+      <strong>${escapeHtml(cityItem.name)}天气加载中</strong>
+      <p>正在获取当前天气和未来 3 天预报。</p>
+    </div>
+  `;
+}
+
+function renderWeatherError(cityItem) {
+  weatherContent.innerHTML = `
+    <div class="weather-loading weather-error">
+      <strong>${escapeHtml(cityItem.name)}天气暂时不可用</strong>
+      <p>请稍后刷新，或出发前以当地气象部门和景区通知为准。</p>
+    </div>
+  `;
+}
+
+function renderWeatherData(cityItem, data, isCached = false) {
+  const current = data.current || {};
+  const daily = data.daily || {};
+  const [symbol, label] = getWeatherInfo(current.weather_code);
+  const forecastDays = (daily.time || []).slice(0, 3);
+  const updateTime = current.time ? current.time.replace("T", " ") : "刚刚";
+
+  weatherContent.innerHTML = `
+    <div class="weather-current">
+      <div class="weather-state">
+        <span>${symbol}</span>
+        <strong>${formatWeatherValue(current.temperature_2m, "°C")}</strong>
+        <p>${escapeHtml(label)} · ${escapeHtml(cityItem.name)}</p>
+      </div>
+      <dl class="weather-metrics">
+        <div>
+          <dt>体感</dt>
+          <dd>${formatWeatherValue(current.apparent_temperature, "°C")}</dd>
+        </div>
+        <div>
+          <dt>湿度</dt>
+          <dd>${formatWeatherValue(current.relative_humidity_2m, "%")}</dd>
+        </div>
+        <div>
+          <dt>风速</dt>
+          <dd>${formatWeatherValue(current.wind_speed_10m, " km/h")}</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="weather-days">
+      ${forecastDays
+        .map((day, index) => {
+          const [daySymbol, dayLabel] = getWeatherInfo(daily.weather_code?.[index]);
+          return `
+            <article class="weather-day">
+              <span>${formatWeatherDate(day)}</span>
+              <strong>${formatWeatherValue(daily.temperature_2m_max?.[index], "°C")} / ${formatWeatherValue(
+                daily.temperature_2m_min?.[index],
+                "°C",
+              )}</strong>
+              <p>${daySymbol} ${escapeHtml(dayLabel)}</p>
+              <small>降水概率 ${formatWeatherValue(daily.precipitation_probability_max?.[index], "%")}</small>
+            </article>
+          `;
+        })
+        .join("")}
+    </div>
+    <p class="weather-advice">${getWeatherAdvice(current)}</p>
+    <p class="weather-source">${isCached ? "最近缓存" : "实时更新"}：Open-Meteo · ${escapeHtml(updateTime)}</p>
+  `;
+}
+
+async function renderWeather(cityItem) {
+  if (!weatherContent) {
+    return;
+  }
+
+  const requestId = (weatherRequestId += 1);
+  const cached = readCachedWeather(cityItem);
+
+  if (cached) {
+    renderWeatherData(cityItem, cached, true);
+  } else {
+    renderWeatherLoading(cityItem);
+  }
+
+  try {
+    const data = await fetchWeather(cityItem);
+    writeCachedWeather(cityItem, data);
+    if (requestId === weatherRequestId) {
+      renderWeatherData(cityItem, data);
+    }
+  } catch (error) {
+    console.warn("天气加载失败。", error);
+    if (requestId === weatherRequestId && !cached) {
+      renderWeatherError(cityItem);
+    }
+  }
 }
 
 function renderGuide(cityId) {
@@ -1485,6 +2104,7 @@ function renderGuide(cityId) {
     .join("");
 
   renderMap(cityItem);
+  renderWeather(cityItem);
 
   routeList.innerHTML = cityItem.route
     .map(
@@ -1500,9 +2120,10 @@ function renderGuide(cityId) {
     )
     .join("");
 
-  placeList.innerHTML = createInfoCards(cityItem.places);
-  foodList.innerHTML = createInfoCards(cityItem.food);
-  tipList.innerHTML = cityItem.tips.map((tip) => `<li>${tip}</li>`).join("");
+  placeList.innerHTML = createInfoCards(cityItem.places, { type: "place" });
+  foodList.innerHTML = createInfoCards(cityItem.food, { cityItem, type: "food" });
+  loadFoodImages(cityItem);
+  tipList.innerHTML = cityItem.tips.map((tip) => `<li>${escapeHtml(tip)}</li>`).join("");
 }
 
 citySearch.addEventListener("input", renderCityCards);

@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
-    <link rel="stylesheet" href="styles.css?v=20260530-smart-routes" />
+    <link rel="stylesheet" href="styles.css?v=20260531-weather-food" />
   </head>
   <body>
     <header class="site-header">
@@ -94,6 +94,14 @@
         </div>
 
         <div class="guide-content">
+          <section class="guide-panel weather-panel" aria-labelledby="weather-title">
+            <div class="panel-heading">
+              <p class="section-label">Weather</p>
+              <h3 id="weather-title">当地天气</h3>
+            </div>
+            <div class="weather-content" id="weather-content" aria-live="polite"></div>
+          </section>
+
           <section class="guide-panel map-panel" id="map" aria-labelledby="map-title">
             <div class="panel-heading">
               <p class="section-label">Map</p>
@@ -146,6 +154,6 @@
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="script.js?v=20260530-smart-routes"></script>
+    <script src="script.js?v=20260531-weather-food"></script>
   </body>
 </html>
