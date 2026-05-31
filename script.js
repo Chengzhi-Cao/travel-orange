@@ -12,6 +12,127 @@ const mapOffsets = [
   [0.02, -0.032],
 ];
 
+const majorCityIds = new Set([
+  "beijing",
+  "shanghai",
+  "guangzhou",
+  "shenzhen",
+  "chongqing",
+  "chengdu",
+  "xian",
+  "hangzhou",
+  "nanjing",
+  "wuhan",
+  "changsha",
+  "qingdao",
+  "xiamen",
+  "hongkong",
+  "macau",
+  "taipei",
+  "london",
+  "paris",
+  "rome",
+  "florence",
+  "venice",
+  "barcelona",
+  "madrid",
+  "lisbon",
+  "berlin",
+  "munich",
+  "amsterdam",
+  "vienna",
+  "prague",
+  "budapest",
+  "athens",
+  "istanbul",
+]);
+
+const compactCityIds = new Set([
+  "bath",
+  "york",
+  "bruges",
+  "ceskykrumlov",
+  "sintra",
+  "lucerne",
+  "salzburg",
+  "innsbruck",
+]);
+
+const nightAnchors = {
+  beijing: "什刹海或前门大街",
+  shanghai: "外滩和南京东路",
+  guangzhou: "珠江新城、海心沙和广州塔夜景",
+  shenzhen: "深圳湾公园或海上世界",
+  chongqing: "洪崖洞和千厮门大桥",
+  chengdu: "九眼桥或锦里",
+  xian: "大唐不夜城",
+  changsha: "坡子街、太平街和五一广场",
+  wuhan: "江汉路步行街和长江大桥夜景",
+  nanjing: "夫子庙秦淮河夜游",
+  hangzhou: "西湖湖滨和南山路",
+  suzhou: "平江路夜游",
+  qingdao: "五四广场灯光秀和奥帆中心",
+  xiamen: "沙坡尾和中山路步行街",
+  fuzhou: "烟台山夜景",
+  quanzhou: "西街和钟楼夜游",
+  hefei: "罍街",
+  huangshan: "屯溪老街",
+  nanchang: "秋水广场和赣江两岸",
+  jinan: "泉城广场和大明湖夜景",
+  zhengzhou: "二七广场或健康路夜市",
+  luoyang: "洛邑古城夜游",
+  kaifeng: "鼓楼夜市",
+  guilin: "阳朔西街",
+  nanning: "三街两巷和中山路夜市",
+  liuzhou: "窑埠古镇和柳江夜景",
+  haikou: "骑楼老街和海大南门夜市",
+  sanya: "第一市场夜市",
+  kunming: "南强街巷或翠湖周边",
+  dali: "大理古城人民路",
+  lijiang: "丽江古城四方街",
+  xishuangbanna: "告庄西双景星光夜市",
+  lhasa: "八廓街转经道",
+  urumqi: "国际大巴扎夜市",
+  kashgar: "喀什古城夜市",
+  harbin: "中央大街和松花江畔",
+  dalian: "星海广场夜景",
+  shenyang: "中街步行街",
+  paris: "塞纳河游船和埃菲尔铁塔灯光",
+  london: "泰晤士河南岸和伦敦眼",
+  rome: "特莱维喷泉和纳沃纳广场",
+  florence: "米开朗琪罗广场日落",
+  venice: "圣马可广场和大运河夜景",
+  milan: "米兰大教堂广场",
+  naples: "蛋堡海湾夜景",
+  madrid: "太阳门广场和马约尔广场",
+  barcelona: "哥特区和兰布拉大道",
+  seville: "西班牙广场夜景",
+  granada: "圣尼古拉斯观景台",
+  lisbon: "阿尔法玛和圣乔治城堡观景台",
+  porto: "里贝拉区和路易一世大桥",
+  berlin: "勃兰登堡门和博物馆岛夜景",
+  munich: "玛利亚广场和皇家啤酒屋",
+  hamburg: "仓库城和易北爱乐厅夜景",
+  amsterdam: "运河带夜游",
+  brussels: "布鲁塞尔大广场夜景",
+  zurich: "苏黎世湖畔和林登霍夫",
+  geneva: "日内瓦湖喷泉夜景",
+  vienna: "格拉本大街和国家歌剧院",
+  prague: "查理大桥和老城广场",
+  budapest: "多瑙河岸和国会大厦夜景",
+  athens: "普拉卡和卫城夜景",
+  santorini: "伊亚日落",
+  copenhagen: "新港夜景",
+  stockholm: "斯德哥尔摩老城夜游",
+  reykjavik: "哈尔格林姆教堂周边或极光团",
+  warsaw: "华沙老城广场",
+  krakow: "中央集市广场",
+  dubrovnik: "斯特拉敦大街和城墙日落",
+  dublin: "圣殿酒吧区",
+  istanbul: "博斯普鲁斯海峡夜游",
+  cappadocia: "格雷梅日落观景台",
+};
+
 const specialWikiTitles = {
   aba: "阿坝藏族羌族自治州",
   altay: "阿勒泰地区",
@@ -638,6 +759,203 @@ function buildMapPoints(raw) {
   });
 }
 
+function getDistanceKm(from, to) {
+  const earthRadius = 6371;
+  const lat1 = (from[1] * Math.PI) / 180;
+  const lat2 = (to.lat * Math.PI) / 180;
+  const deltaLat = ((to.lat - from[1]) * Math.PI) / 180;
+  const deltaLng = ((to.lng - from[0]) * Math.PI) / 180;
+  const a =
+    Math.sin(deltaLat / 2) ** 2 +
+    Math.cos(lat1) * Math.cos(lat2) * Math.sin(deltaLng / 2) ** 2;
+  return earthRadius * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function hasAnyKeyword(text, keywords) {
+  return keywords.some((keyword) => text.includes(keyword));
+}
+
+function isRemotePoint(point, distanceKm) {
+  const text = `${point.name} ${point.desc}`;
+  const remoteKeywords = [
+    "近郊",
+    "一日游",
+    "国家公园",
+    "森林",
+    "草原",
+    "沙漠",
+    "峡谷",
+    "大峡谷",
+    "瀑布",
+    "雪山",
+    "冰川",
+    "山",
+    "岛",
+    "湖",
+    "古镇",
+    "遗址",
+    "温泉",
+    "滑雪",
+    "海岸",
+    "海湾",
+    "世界遗产",
+    "峰",
+    "洞",
+    "盐矿",
+    "火山",
+  ];
+
+  return distanceKm > 35 || hasAnyKeyword(text, remoteKeywords);
+}
+
+function getTravelProfile(raw, mapPoints) {
+  const distances = mapPoints.map((point) => getDistanceKm(raw.center, point));
+  const maxDistance = Math.max(...distances, 0);
+  const remotePoints = mapPoints.filter((point, index) => isRemotePoint(point, distances[index]));
+  const spotCount = mapPoints.length;
+  let days = 2;
+
+  if (majorCityIds.has(raw.id)) {
+    days = 3;
+  }
+
+  if (compactCityIds.has(raw.id)) {
+    days = 2;
+  }
+
+  if (spotCount >= 4 && !compactCityIds.has(raw.id)) {
+    days = Math.max(days, 3);
+  }
+
+  if (remotePoints.length >= 1 || maxDistance > 35) {
+    days = Math.max(days, 3);
+  }
+
+  if (remotePoints.length >= 2 || maxDistance > 90) {
+    days = Math.max(days, 4);
+  }
+
+  days = Math.min(days, 4);
+
+  const pace =
+    days === 2
+      ? "景点集中，适合周末快走"
+      : days === 3
+        ? "城市核心加一段近郊"
+        : "城市核心加两段远郊/自然线";
+
+  return {
+    days,
+    distances,
+    maxDistance,
+    pace,
+    remotePoints,
+  };
+}
+
+function pickPoint(points, fallbackIndex = 0) {
+  return points[fallbackIndex] || points[0];
+}
+
+function pickNightAnchor(raw, mapPoints) {
+  if (raw.night) {
+    return raw.night;
+  }
+
+  if (nightAnchors[raw.id]) {
+    return nightAnchors[raw.id];
+  }
+
+  const nightKeywords = [
+    "夜",
+    "老城",
+    "古城",
+    "古镇",
+    "老街",
+    "步行街",
+    "广场",
+    "河",
+    "湖",
+    "海滨",
+    "海岸",
+    "港",
+    "桥",
+    "塔",
+    "观景",
+    "山",
+    "街区",
+    "市场",
+    "巴扎",
+  ];
+  const point = mapPoints.find((item) => hasAnyKeyword(`${item.name} ${item.desc}`, nightKeywords));
+
+  if (point) {
+    return point.name;
+  }
+
+  return mapPoints[0].name;
+}
+
+function buildRoute(raw, mapPoints, profile) {
+  const remotePoints = profile.remotePoints;
+  const urbanPoints = mapPoints.filter((point) => !remotePoints.includes(point));
+  const corePoints = urbanPoints.length > 0 ? urbanPoints : mapPoints;
+  const night = pickNightAnchor(raw, mapPoints);
+  const food = raw.foods[0];
+  const first = pickPoint(corePoints, 0);
+  const second = pickPoint(corePoints, 1);
+  const third = pickPoint(corePoints, 2);
+  const firstRemote = remotePoints[0];
+  const secondRemote = remotePoints[1];
+  const route = [];
+
+  route.push([
+    "Day 1",
+    `${first.name} - ${second.name}`,
+    `上午从${first.name}开始，重点看${first.desc}；下午转到${second.name}，晚上去${night}看夜景或逛街区，再用${food}收尾。`,
+  ]);
+
+  if (profile.days === 2) {
+    route.push([
+      "Day 2",
+      `${third.name} - ${night}`,
+      `第二天把${third.name}放在上午或下午，余下时间留给周边街巷；傍晚回到${night}，节奏紧凑但不赶场。`,
+    ]);
+    return route;
+  }
+
+  route.push([
+    "Day 2",
+    `${third.name} - ${night}`,
+    `把${third.name}作为第二天主线，下午补一个博物馆、老街或湖岸散步；晚上继续安排${night}，适合拍夜景和吃本地小吃。`,
+  ]);
+
+  if (firstRemote) {
+    route.push([
+      "Day 3",
+      `${firstRemote.name}一日游`,
+      `${firstRemote.name}距离和游览强度都更适合单独留一天，建议早出发；返程后不要再塞重体力景点，晚餐回到市区吃${raw.foods[1] || food}。`,
+    ]);
+  } else {
+    route.push([
+      "Day 3",
+      `${mapPoints[mapPoints.length - 1].name} - ${night}`,
+      `第三天用来补${mapPoints[mapPoints.length - 1].name}和周边街区，下午留一点机动时间；晚上在${night}做最后一轮夜景和美食补完。`,
+    ]);
+  }
+
+  if (profile.days >= 4) {
+    const dayFourPoint = secondRemote || mapPoints[mapPoints.length - 1];
+    route.push([
+      "Day 4",
+      `${dayFourPoint.name}深度慢游`,
+      `${dayFourPoint.name}适合放到第四天，给交通、排队和拍照留余量；回城后选择${night}附近住宿或餐厅，减少折返。`,
+    ]);
+  }
+
+  return route;
+}
+
 function getWikiTitle(raw, province) {
   if (raw.wikiTitle) {
     return raw.wikiTitle;
@@ -672,9 +990,7 @@ function getWikiTitle(raw, province) {
 
 function buildCity(raw, province, index) {
   const mapPoints = buildMapPoints(raw);
-  const first = mapPoints[0];
-  const second = mapPoints[1] || mapPoints[0];
-  const third = mapPoints[2] || mapPoints[0];
+  const profile = getTravelProfile(raw, mapPoints);
 
   return {
     ...raw,
@@ -686,19 +1002,16 @@ function buildCity(raw, province, index) {
     wikiTitle: getWikiTitle(raw, province),
     image: raw.image || defaultCityImages[index % defaultCityImages.length],
     alt: raw.alt || `${raw.name}城市旅游印象`,
+    recommendedDays: profile.days,
     intro:
       raw.intro ||
-      `${raw.name}是${province.name}的重点旅游城市，适合用 2-3 天把城市地标、代表景点和本地美食串成一条轻松路线。`,
+      `${raw.name}是${province.name}的重点旅游城市，按景点数量和距离更适合安排 ${profile.days} 天，把城市地标、代表景点和本地美食串成一条顺路的行程。`,
     facts: raw.facts || [
+      ["建议天数", `${profile.days} 天`],
+      ["行程判断", profile.pace],
       [province.board === "europe" ? "所属国家" : "所属省份", province.name],
-      ["所在区域", province.region],
-      ["旅行关键词", raw.label],
     ],
-    route: raw.route || [
-      ["Day 1", `${first.name} - ${second.name}`, `先看${first.desc}，再顺路走到${second.name}，把第一天留给城市最有代表性的区域。`],
-      ["Day 2", `${third.name} - 城市街区慢游`, `${third.name}适合安排半天，下午留给老街、博物馆或当地生活街区。`],
-      ["Day 3", "近郊 / 美食 / 夜景补完", "时间充裕时补一个近郊点位，晚上把本地菜和夜游安排上。"],
-    ],
+    route: raw.route || buildRoute(raw, mapPoints, profile),
     places: raw.places || mapPoints.slice(0, 3).map((point) => [point.name, point.desc]),
     food: raw.food || raw.foods.map((food, foodIndex) => [
       food,
