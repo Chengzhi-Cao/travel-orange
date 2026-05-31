@@ -89,6 +89,44 @@ const foodWikiTitleAliases = {
   炸肉排: "维也纳炸肉排",
   烤肉: "烤肉",
   红茶: "土耳其茶",
+  冬阴功: "冬荫功",
+  泰式炒河粉: "泰式炒河粉",
+  青木瓜沙拉: "青木瓜沙拉",
+  咖喱面: "咖喱面",
+  越南河粉: "越南河粉",
+  法棍三明治: "越南法包",
+  春卷: "春卷",
+  海南鸡饭: "海南鸡饭",
+  叻沙: "叻沙",
+  肉骨茶: "肉骨茶",
+  椰浆饭: "椰浆饭",
+  沙爹: "沙嗲",
+  炒粿条: "炒粿条",
+  仁当牛肉: "仁当",
+  印尼炒饭: "印尼炒饭",
+  烤乳猪: "烤乳猪",
+  阿莫克鱼: "阿莫克",
+  高棉咖喱: "咖喱",
+  老挝糯米饭: "糯米饭",
+  烤鱼: "烤鱼",
+  菲律宾烤乳猪: "烤乳猪",
+  阿斗波: "阿斗波",
+  仰光鱼汤粉: "鱼汤米线",
+  椰浆饭团: "椰浆饭",
+  椰枣: "椰枣",
+  沙威玛: "沙威玛",
+  鹰嘴豆泥: "鹰嘴豆泥",
+  曼迪饭: "曼迪",
+  卡布萨饭: "卡布萨",
+  法拉费: "法拉费",
+  烤羊肉: "烤羊肉",
+  阿拉伯咖啡: "阿拉伯咖啡",
+  富尔: "蚕豆",
+  库沙利: "库沙利",
+  塔吉锅: "塔吉锅",
+  伊朗烤肉: "烤肉",
+  藏红花饭: "藏红花",
+  果仁蜜饼: "果仁蜜饼",
 };
 
 const mapOffsets = [
@@ -131,6 +169,28 @@ const majorCityIds = new Set([
   "budapest",
   "athens",
   "istanbul",
+  "bangkok",
+  "chiang_mai",
+  "phuket",
+  "hanoi",
+  "ho_chi_minh",
+  "da_nang",
+  "singapore",
+  "kuala_lumpur",
+  "penang",
+  "bali",
+  "siem_reap",
+  "dubai",
+  "abu_dhabi",
+  "doha",
+  "riyadh",
+  "jeddah",
+  "cairo",
+  "luxor",
+  "jerusalem",
+  "tel_aviv",
+  "tehran",
+  "isfahan",
 ]);
 
 const compactCityIds = new Set([
@@ -142,6 +202,10 @@ const compactCityIds = new Set([
   "lucerne",
   "salzburg",
   "innsbruck",
+  "luang_prabang",
+  "bandar_seri_begawan",
+  "manama",
+  "kuwait_city",
 ]);
 
 const nightAnchors = {
@@ -217,6 +281,49 @@ const nightAnchors = {
   dublin: "圣殿酒吧区",
   istanbul: "博斯普鲁斯海峡夜游",
   cappadocia: "格雷梅日落观景台",
+  bangkok: "昭披耶河和Asiatique夜市",
+  chiang_mai: "周日夜市和塔佩门",
+  phuket: "普吉老镇和芭东海滩夜市",
+  hanoi: "还剑湖和三十六行街夜市",
+  ho_chi_minh: "阮惠步行街和滨城市场周边",
+  da_nang: "龙桥夜景和韩江河畔",
+  hoi_an: "会安古城灯笼夜景",
+  singapore: "滨海湾灯光秀和克拉码头",
+  kuala_lumpur: "双子塔夜景和阿罗街夜市",
+  penang: "乔治市壁画街区和汕头街夜市",
+  kota_kinabalu: "丹绒亚路日落",
+  bali: "金巴兰海滩日落",
+  yogyakarta: "马里奥波罗大街",
+  jakarta: "老城广场或PIK海边夜景",
+  siem_reap: "酒吧街和老市场夜市",
+  phnom_penh: "洞里萨河滨步道",
+  luang_prabang: "洋人街夜市和湄公河畔",
+  vientiane: "湄公河夜市",
+  manila: "马尼拉湾日落",
+  cebu: "IT Park夜市和海滨",
+  yangon: "仰光唐人街夜市",
+  bandar_seri_begawan: "奥马尔阿里赛夫丁清真寺夜景",
+  dubai: "迪拜喷泉和哈利法塔夜景",
+  abu_dhabi: "滨海大道和卢浮宫阿布扎比夜景",
+  doha: "滨海大道和瓦其夫市集",
+  riyadh: "王国中心观景台和Boulevard City",
+  jeddah: "吉达滨海路和老城夜游",
+  alula: "埃莱凡特岩日落",
+  muscat: "马特拉海滨大道和马特拉市集",
+  nizwa: "尼兹瓦城堡周边市集",
+  amman: "彩虹街和城堡山夜景",
+  petra: "佩特拉夜游",
+  jerusalem: "雅法门和老城夜景",
+  tel_aviv: "特拉维夫海滨和雅法老城",
+  beirut: "Zaitunay Bay和Hamra街区",
+  cairo: "尼罗河游船和汗哈利利市场",
+  luxor: "卢克索神庙夜景",
+  aswan: "尼罗河滨和努比亚村日落",
+  tehran: "塔比亚特大桥夜景",
+  isfahan: "三十三孔桥夜景",
+  shiraz: "古兰经门和哈菲兹墓夜景",
+  manama: "巴林湾和Bab Al Bahrain夜景",
+  kuwait_city: "科威特塔夜景",
 };
 
 const specialWikiTitles = {
@@ -829,6 +936,202 @@ const europeCountryGroups = [
   },
 ];
 
+const southeastAsiaCountryGroups = [
+  {
+    name: "泰国",
+    region: "东南亚",
+    board: "southeast-asia",
+    cities: [
+      city("bangkok", "曼谷", "大皇宫 / 河岸夜市 / 寺庙", [100.501, 13.756], ["冬阴功", "泰式炒河粉", "芒果糯米饭"], [["大皇宫", "泰国王室建筑群"], ["卧佛寺", "经典寺庙和佛像"], ["昭披耶河", "河岸夜游和水上交通"], ["乍都乍周末市场", "大型市集和手作小店"]]),
+      city("chiang_mai", "清迈", "古城寺庙 / 夜市 / 山地自然", [98.985, 18.788], ["咖喱面", "青木瓜沙拉", "烤鸡"], [["清迈古城", "寺庙和城墙街区"], ["素贴山双龙寺", "俯瞰清迈的山上寺庙"], ["周日夜市", "手作市集和街头小吃"], ["大象自然公园", "近郊动物保护体验"]]),
+      city("phuket", "普吉岛", "海岛度假 / 老镇 / 跳岛", [98.392, 7.88], ["海鲜", "冬阴功", "泰式炒河粉"], [["普吉老镇", "彩色骑楼和咖啡馆"], ["芭东海滩", "海滩和夜生活"], ["查龙寺", "岛上代表寺庙"], ["皮皮岛", "跳岛一日游"]]),
+    ],
+  },
+  {
+    name: "越南",
+    region: "东南亚",
+    board: "southeast-asia",
+    cities: [
+      city("hanoi", "河内", "老城区 / 湖畔 / 法式建筑", [105.854, 21.028], ["越南河粉", "法棍三明治", "蛋咖啡"], [["还剑湖", "老城核心湖畔"], ["三十六行街", "传统街巷和夜市"], ["文庙", "越南古代教育遗存"], ["升龙皇城", "世界遗产历史遗址"]]),
+      city("ho_chi_minh", "胡志明市", "法式建筑 / 咖啡 / 城市活力", [106.7, 10.776], ["越南河粉", "春卷", "滴漏咖啡"], [["中央邮局", "法式殖民建筑"], ["统一宫", "近现代历史地标"], ["滨城市场", "市集和小吃"], ["阮惠步行街", "城市夜生活主轴"]]),
+      city("da_nang", "岘港", "海滩 / 山茶半岛 / 会安门户", [108.202, 16.054], ["米粉", "海鲜", "越南煎饼"], [["美溪海滩", "城市海滩"], ["龙桥", "韩江夜景地标"], ["山茶半岛", "海岸山地风景"], ["巴拿山", "近郊山地主题景区"]]),
+      city("hoi_an", "会安", "灯笼古城 / 河畔 / 慢生活", [108.338, 15.88], ["高楼面", "白玫瑰饺", "越南咖啡"], [["会安古城", "世界遗产老街区"], ["日本廊桥", "古城地标"], ["秋盆河", "河畔灯笼夜景"], ["安邦海滩", "近郊海岸休闲"]]),
+    ],
+  },
+  {
+    name: "新加坡",
+    region: "东南亚",
+    board: "southeast-asia",
+    cities: [
+      city("singapore", "新加坡", "滨海湾 / 花园城市 / 多元美食", [103.82, 1.352], ["海南鸡饭", "叻沙", "肉骨茶"], [["滨海湾花园", "超级树和温室"], ["鱼尾狮公园", "城市经典地标"], ["牛车水", "街区文化和小吃"], ["圣淘沙", "海岛度假和主题乐园"]]),
+    ],
+  },
+  {
+    name: "马来西亚",
+    region: "东南亚",
+    board: "southeast-asia",
+    cities: [
+      city("kuala_lumpur", "吉隆坡", "双子塔 / 多元街区 / 夜市", [101.687, 3.139], ["椰浆饭", "沙爹", "肉骨茶"], [["双子塔", "城市天际线地标"], ["独立广场", "历史建筑群"], ["黑风洞", "近郊印度教圣地"], ["阿罗街夜市", "夜间美食街"]]),
+      city("penang", "槟城", "乔治市 / 壁画 / 街头美食", [100.329, 5.414], ["炒粿条", "叻沙", "椰浆饭"], [["乔治市", "世界遗产街区"], ["姓氏桥", "水上聚落"], ["升旗山", "俯瞰槟城和海峡"], ["汕头街夜市", "小吃集中街区"]]),
+      city("kota_kinabalu", "哥打京那巴鲁", "日落海岸 / 神山 / 海岛", [116.073, 5.98], ["海鲜", "沙爹", "椰浆饭"], [["丹绒亚路海滩", "经典日落海滩"], ["加雅街", "市集和咖啡馆"], ["东姑阿都拉曼国家公园", "近海跳岛"], ["京那巴鲁山", "山地自然线"]]),
+    ],
+  },
+  {
+    name: "印度尼西亚",
+    region: "东南亚",
+    board: "southeast-asia",
+    cities: [
+      city("bali", "巴厘岛", "海滩 / 神庙 / 梯田", [115.188, -8.409], ["印尼炒饭", "沙爹", "烤乳猪"], [["乌布", "艺术村和稻田"], ["海神庙", "海边神庙日落"], ["金巴兰海滩", "海鲜和日落"], ["德格拉朗梯田", "梯田风景"]]),
+      city("yogyakarta", "日惹", "古迹 / 火山 / 爪哇文化", [110.367, -7.795], ["印尼炒饭", "仁当牛肉", "沙爹"], [["婆罗浮屠", "世界遗产佛教遗址"], ["普兰巴南", "印度教神庙群"], ["马里奥波罗大街", "市区主街和夜市"], ["默拉皮火山", "近郊火山地貌"]]),
+      city("jakarta", "雅加达", "首都街区 / 老城 / 海湾", [106.846, -6.208], ["印尼炒饭", "沙爹", "仁当牛肉"], [["雅加达老城", "殖民时期街区"], ["国家纪念塔", "城市纪念地标"], ["大印尼商场", "市中心商业区"], ["千岛群岛", "近海岛屿度假"]]),
+    ],
+  },
+  {
+    name: "柬埔寨",
+    region: "东南亚",
+    board: "southeast-asia",
+    cities: [
+      city("siem_reap", "暹粒", "吴哥遗址 / 日出 / 夜市", [103.856, 13.363], ["阿莫克鱼", "高棉咖喱", "春卷"], [["吴哥窟", "世界遗产核心神庙"], ["巴戎寺", "高棉微笑石像"], ["塔布茏寺", "树根缠绕的遗址"], ["酒吧街", "夜市和餐吧"]]),
+      city("phnom_penh", "金边", "王宫 / 河岸 / 高棉历史", [104.928, 11.556], ["阿莫克鱼", "高棉咖喱", "烤肉"], [["金边王宫", "王室建筑群"], ["银阁寺", "王宫内宗教建筑"], ["中央市场", "装饰艺术风格市集"], ["洞里萨河滨", "河岸散步"]]),
+    ],
+  },
+  {
+    name: "老挝",
+    region: "东南亚",
+    board: "southeast-asia",
+    cities: [
+      city("luang_prabang", "琅勃拉邦", "寺庙 / 湄公河 / 慢城", [102.135, 19.886], ["老挝糯米饭", "烤鱼", "青木瓜沙拉"], [["香通寺", "老挝寺庙代表"], ["普西山", "俯瞰古城和湄公河"], ["光西瀑布", "近郊瀑布和森林"], ["洋人街夜市", "手作和夜间小吃"]]),
+      city("vientiane", "万象", "佛塔 / 湄公河 / 法式街区", [102.633, 17.975], ["老挝糯米饭", "烤鱼", "咖啡"], [["塔銮", "老挝国家象征"], ["凯旋门", "城市地标"], ["西萨格寺", "历史寺庙"], ["湄公河夜市", "河畔夜生活"]]),
+    ],
+  },
+  {
+    name: "菲律宾",
+    region: "东南亚",
+    board: "southeast-asia",
+    cities: [
+      city("manila", "马尼拉", "西班牙城墙 / 海湾 / 都市文化", [120.984, 14.599], ["菲律宾烤乳猪", "阿斗波", "海鲜"], [["王城 Intramuros", "西班牙殖民城墙区"], ["圣奥古斯丁教堂", "世界遗产教堂"], ["马尼拉湾", "日落海岸"], ["黎刹公园", "城市纪念公园"]]),
+      city("cebu", "宿务", "海岛 / 历史 / 潜水门户", [123.885, 10.315], ["菲律宾烤乳猪", "海鲜", "芒果甜品"], [["麦哲伦十字架", "城市历史地标"], ["圣婴教堂", "宿务代表教堂"], ["墨宝沙丁鱼风暴", "近郊潜水体验"], ["IT Park夜市", "夜间美食街"]]),
+    ],
+  },
+  {
+    name: "缅甸",
+    region: "东南亚",
+    board: "southeast-asia",
+    cities: [
+      city("yangon", "仰光", "金塔 / 湖畔 / 老建筑", [96.196, 16.841], ["仰光鱼汤粉", "咖喱饭", "奶茶"], [["瑞光大金塔", "城市宗教地标"], ["昂山市场", "传统市集"], ["苏雷宝塔", "市中心地标"], ["坎道基湖", "湖畔散步"]]),
+    ],
+  },
+  {
+    name: "文莱",
+    region: "东南亚",
+    board: "southeast-asia",
+    cities: [
+      city("bandar_seri_begawan", "斯里巴加湾市", "清真寺 / 水上村 / 河岸", [114.94, 4.903], ["椰浆饭团", "沙爹", "海鲜"], [["奥马尔阿里赛夫丁清真寺", "城市标志性清真寺"], ["水上村", "传统水上聚落"], ["皇家礼仪博物馆", "王室文化展馆"], ["加东夜市", "本地夜间小吃"]]),
+    ],
+  },
+];
+
+const middleEastCountryGroups = [
+  {
+    name: "阿联酋",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("dubai", "迪拜", "摩天楼 / 沙漠 / 海湾度假", [55.27, 25.204], ["沙威玛", "椰枣", "阿拉伯咖啡"], [["哈利法塔", "世界级观景地标"], ["迪拜喷泉", "夜间灯光水秀"], ["迪拜老城", "溪河和传统市集"], ["朱美拉棕榈岛", "海湾度假地标"]]),
+      city("abu_dhabi", "阿布扎比", "清真寺 / 博物馆 / 海岛", [54.377, 24.453], ["曼迪饭", "椰枣", "阿拉伯咖啡"], [["谢赫扎耶德大清真寺", "白色清真寺地标"], ["卢浮宫阿布扎比", "海上博物馆"], ["阿布扎比滨海大道", "海湾城市风景"], ["亚斯岛", "主题乐园和度假区"]]),
+    ],
+  },
+  {
+    name: "卡塔尔",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("doha", "多哈", "海湾天际线 / 市集 / 博物馆", [51.531, 25.285], ["卡布萨饭", "鹰嘴豆泥", "阿拉伯咖啡"], [["伊斯兰艺术博物馆", "海湾博物馆地标"], ["瓦其夫市集", "传统市集和餐厅"], ["多哈滨海大道", "天际线和海湾散步"], ["卡塔拉文化村", "文化街区和海滩"]]),
+    ],
+  },
+  {
+    name: "沙特阿拉伯",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("riyadh", "利雅得", "现代首都 / 观景塔 / 沙漠边缘", [46.675, 24.713], ["卡布萨饭", "烤羊肉", "阿拉伯咖啡"], [["王国中心", "城市观景塔"], ["马斯马克堡", "老城历史地标"], ["德拉伊耶遗址", "近郊世界遗产"], ["Boulevard City", "夜间娱乐街区"]]),
+      city("jeddah", "吉达", "红海港口 / 老城 / 海滨", [39.173, 21.543], ["曼迪饭", "海鲜", "椰枣"], [["吉达老城", "世界遗产历史街区"], ["吉达滨海路", "红海岸线散步"], ["法赫德国王喷泉", "海上喷泉地标"], ["纳西夫故居", "老城建筑代表"]]),
+      city("alula", "阿尔乌拉", "沙漠峡谷 / 古迹 / 星空", [37.923, 26.608], ["烤羊肉", "椰枣", "阿拉伯咖啡"], [["黑格拉遗址", "纳巴泰文明世界遗产"], ["埃莱凡特岩", "沙漠岩石日落"], ["阿尔乌拉老城", "古城街巷"], ["马拉亚音乐厅", "镜面建筑地标"]]),
+    ],
+  },
+  {
+    name: "阿曼",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("muscat", "马斯喀特", "海湾山城 / 清真寺 / 市集", [58.382, 23.589], ["曼迪饭", "海鲜", "阿拉伯咖啡"], [["苏丹卡布斯大清真寺", "阿曼代表清真寺"], ["马特拉市集", "传统市集和海滨"], ["马斯喀特皇宫", "王宫外观和海湾建筑"], ["古伦海滩", "城市海滩休闲"]]),
+      city("nizwa", "尼兹瓦", "城堡 / 山地 / 传统市集", [57.531, 22.933], ["烤羊肉", "椰枣", "阿拉伯咖啡"], [["尼兹瓦城堡", "阿曼经典城堡"], ["尼兹瓦市集", "银器和香料市集"], ["贾巴尔阿赫达尔", "近郊山地风景"], ["巴赫拉堡", "世界遗产城堡"]]),
+    ],
+  },
+  {
+    name: "约旦",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("amman", "安曼", "古罗马遗址 / 山城 / 市集", [35.93, 31.953], ["曼萨夫", "法拉费", "鹰嘴豆泥"], [["安曼城堡山", "俯瞰山城遗址"], ["罗马剧场", "古罗马城市遗存"], ["彩虹街", "咖啡馆和夜生活"], ["杰拉什遗址", "近郊古罗马遗址"]]),
+      city("petra", "佩特拉", "玫瑰古城 / 峡谷 / 沙漠", [35.444, 30.328], ["曼萨夫", "烤羊肉", "红茶"], [["蛇道", "峡谷步入古城"], ["卡兹尼神殿", "佩特拉经典立面"], ["修道院", "徒步深处遗址"], ["瓦迪拉姆", "近郊沙漠营地"]]),
+    ],
+  },
+  {
+    name: "以色列",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("jerusalem", "耶路撒冷", "老城 / 宗教圣地 / 历史层叠", [35.214, 31.768], ["鹰嘴豆泥", "法拉费", "沙威玛"], [["耶路撒冷老城", "多宗教历史核心"], ["西墙", "重要宗教地标"], ["圣墓教堂", "老城核心教堂"], ["橄榄山", "俯瞰老城全景"]]),
+      city("tel_aviv", "特拉维夫", "海滩 / 包豪斯 / 夜生活", [34.781, 32.085], ["鹰嘴豆泥", "法拉费", "沙威玛"], [["雅法老城", "海边古城街区"], ["特拉维夫海滨", "城市海滩和日落"], ["白城", "包豪斯建筑群"], ["卡梅尔市场", "市集和小吃"]]),
+    ],
+  },
+  {
+    name: "黎巴嫩",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("beirut", "贝鲁特", "地中海 / 咖啡馆 / 历史街区", [35.502, 33.893], ["鹰嘴豆泥", "烤肉", "果仁蜜饼"], [["贝鲁特滨海大道", "地中海海岸散步"], ["鸽子岩", "海上岩石地标"], ["贝鲁特国家博物馆", "历史文物展馆"], ["Hamra街区", "咖啡馆和夜生活"]]),
+    ],
+  },
+  {
+    name: "埃及",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("cairo", "开罗", "金字塔 / 尼罗河 / 市集", [31.235, 30.044], ["库沙利", "富尔", "烤肉"], [["吉萨金字塔", "世界级古文明地标"], ["埃及博物馆", "古埃及文物展馆"], ["汗哈利利市场", "老城传统市集"], ["尼罗河", "河岸夜游"]]),
+      city("luxor", "卢克索", "神庙 / 帝王谷 / 尼罗河", [32.639, 25.687], ["烤肉", "富尔", "阿拉伯咖啡"], [["卡尔纳克神庙", "宏大神庙遗址"], ["卢克索神庙", "城市核心神庙"], ["帝王谷", "古埃及陵墓群"], ["尼罗河西岸", "日落和田园风景"]]),
+      city("aswan", "阿斯旺", "尼罗河慢城 / 努比亚文化 / 神庙", [32.899, 24.088], ["烤鱼", "富尔", "阿拉伯咖啡"], [["菲莱神庙", "尼罗河岛上神庙"], ["努比亚村", "彩色村落文化"], ["阿斯旺大坝", "现代水利地标"], ["阿布辛贝神庙", "远郊世界遗产"]]),
+    ],
+  },
+  {
+    name: "伊朗",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("tehran", "德黑兰", "博物馆 / 山脚城市 / 现代生活", [51.389, 35.689], ["伊朗烤肉", "藏红花饭", "红茶"], [["古列斯坦宫", "世界遗产宫殿"], ["伊朗国家博物馆", "历史文物展馆"], ["塔比亚特大桥", "现代城市地标"], ["达尔班德", "山脚休闲街区"]]),
+      city("isfahan", "伊斯法罕", "广场 / 清真寺 / 古桥", [51.667, 32.654], ["伊朗烤肉", "藏红花饭", "果仁蜜饼"], [["伊玛目广场", "世界遗产广场"], ["谢赫洛特夫拉清真寺", "精美穹顶建筑"], ["三十三孔桥", "城市古桥夜景"], ["聚礼清真寺", "伊斯兰建筑遗产"]]),
+      city("shiraz", "设拉子", "诗歌 / 花园 / 波斯古迹", [52.583, 29.592], ["伊朗烤肉", "藏红花饭", "红茶"], [["粉红清真寺", "彩色玻璃晨光"], ["哈菲兹墓", "诗人纪念花园"], ["波斯波利斯", "近郊古波斯遗址"], ["天堂花园", "波斯园林"]]),
+    ],
+  },
+  {
+    name: "巴林",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("manama", "麦纳麦", "海湾金融城 / 市集 / 古堡", [50.587, 26.228], ["曼迪饭", "椰枣", "阿拉伯咖啡"], [["巴林国家博物馆", "海湾历史文化展馆"], ["Bab Al Bahrain", "老城入口和市集"], ["巴林堡", "世界遗产古堡"], ["巴林湾", "现代海湾天际线"]]),
+    ],
+  },
+  {
+    name: "科威特",
+    region: "中东",
+    board: "middle-east",
+    cities: [
+      city("kuwait_city", "科威特城", "海湾塔群 / 市集 / 博物馆", [47.977, 29.375], ["曼迪饭", "海鲜", "阿拉伯咖啡"], [["科威特塔", "城市观景地标"], ["大清真寺", "城市宗教建筑"], ["穆巴拉基亚市场", "传统市集"], ["海滨大道", "海湾散步和夜景"]]),
+    ],
+  },
+];
+
 const reservationRules = [
   {
     label: "需预约",
@@ -857,6 +1160,15 @@ const reservationRules = [
       "凡尔赛",
       "斗兽场",
       "地下城",
+      "王宫",
+      "皇宫",
+      "神庙",
+      "陵墓",
+      "大皇宫",
+      "吴哥",
+      "金字塔",
+      "佩特拉",
+      "卢浮宫阿布扎比",
     ],
   },
   {
@@ -884,6 +1196,15 @@ const reservationRules = [
       "观景台",
       "剧院",
       "塔",
+      "寺庙",
+      "清真寺",
+      "古堡",
+      "城堡",
+      "宫殿",
+      "老城",
+      "古城",
+      "遗址",
+      "国家公园",
     ],
   },
 ];
@@ -1050,6 +1371,45 @@ function pickPoint(points, fallbackIndex = 0) {
   return points[fallbackIndex] || points[0];
 }
 
+function getUniquePoints(points) {
+  const seen = new Set();
+  return points.filter((point) => {
+    if (!point || seen.has(point.name)) {
+      return false;
+    }
+
+    seen.add(point.name);
+    return true;
+  });
+}
+
+function getUnusedPoint(points, usedNames) {
+  return points.find((point) => point && !usedNames.has(point.name));
+}
+
+function markUsed(usedNames, points) {
+  points.forEach((point) => {
+    if (point) {
+      usedNames.add(point.name);
+    }
+  });
+}
+
+function joinRouteNames(points, fallback) {
+  const names = getUniquePoints(points).map((point) => point.name);
+  return names.length > 0 ? names.join(" - ") : fallback;
+}
+
+function anchorIncludesPoint(anchor, point) {
+  return Boolean(point && anchor && (anchor.includes(point.name) || point.name.includes(anchor)));
+}
+
+function getEveningPlan(dayPoints, night) {
+  return dayPoints.some((point) => anchorIncludesPoint(night, point))
+    ? "傍晚留在同一片区看夜景或逛街区"
+    : `晚上去${night}看夜景或逛街区`;
+}
+
 function pickNightAnchor(raw, mapPoints) {
   if (raw.night) {
     return raw.night;
@@ -1090,59 +1450,82 @@ function pickNightAnchor(raw, mapPoints) {
 }
 
 function buildRoute(raw, mapPoints, profile) {
-  const remotePoints = profile.remotePoints;
-  const urbanPoints = mapPoints.filter((point) => !remotePoints.includes(point));
+  const remotePoints = getUniquePoints(profile.remotePoints);
+  const urbanPoints = getUniquePoints(mapPoints.filter((point) => !remotePoints.includes(point)));
   const corePoints = urbanPoints.length > 0 ? urbanPoints : mapPoints;
+  const allPoints = getUniquePoints([...corePoints, ...remotePoints, ...mapPoints]);
   const night = pickNightAnchor(raw, mapPoints);
   const food = raw.foods[0];
-  const first = pickPoint(corePoints, 0);
-  const second = pickPoint(corePoints, 1);
-  const third = pickPoint(corePoints, 2);
-  const firstRemote = remotePoints[0];
-  const secondRemote = remotePoints[1];
+  const usedNames = new Set();
   const route = [];
+  const first = getUnusedPoint(corePoints, usedNames) || pickPoint(allPoints, 0);
+  markUsed(usedNames, [first]);
+  const second = getUnusedPoint(corePoints, usedNames) || getUnusedPoint(allPoints, usedNames);
+  markUsed(usedNames, [second]);
+  const dayOnePoints = [first, second].filter(Boolean);
 
   route.push([
     "Day 1",
-    `${first.name} - ${second.name}`,
-    `上午从${first.name}开始，重点看${first.desc}；下午转到${second.name}，晚上去${night}看夜景或逛街区，再用${food}收尾。`,
+    joinRouteNames(dayOnePoints, `${raw.name}核心区`),
+    `上午从${first.name}开始，重点看${first.desc}；下午${second ? `转到${second.name}，看${second.desc}` : "留给周边街巷和咖啡馆"}；${getEveningPlan(dayOnePoints, night)}，再用${food}收尾。`,
   ]);
+
+  const dayTwoFirst =
+    getUnusedPoint(corePoints, usedNames) ||
+    getUnusedPoint(allPoints, usedNames) ||
+    pickPoint(corePoints, 0);
+  markUsed(usedNames, [dayTwoFirst]);
+  const dayTwoSecond =
+    getUnusedPoint(corePoints, usedNames) ||
+    (profile.days === 2 ? getUnusedPoint(allPoints, usedNames) : null);
+  markUsed(usedNames, [dayTwoSecond]);
+  const dayTwoPoints = [dayTwoFirst, dayTwoSecond].filter(Boolean);
 
   if (profile.days === 2) {
     route.push([
       "Day 2",
-      `${third.name} - ${night}`,
-      `第二天把${third.name}放在上午或下午，余下时间留给周边街巷；傍晚回到${night}，节奏紧凑但不赶场。`,
+      joinRouteNames(dayTwoPoints, `${raw.name}街区慢游`),
+      `${dayTwoFirst.name}放在第二天主线，重点看${dayTwoFirst.desc}；${dayTwoSecond ? `下午补${dayTwoSecond.name}，` : "下午留给周边街巷，"}傍晚就近吃${raw.foods[1] || food}，节奏紧凑但不赶场。`,
     ]);
     return route;
   }
 
   route.push([
     "Day 2",
-    `${third.name} - ${night}`,
-    `把${third.name}作为第二天主线，下午补一个博物馆、老街或湖岸散步；晚上继续安排${night}，适合拍夜景和吃本地小吃。`,
+    joinRouteNames(dayTwoPoints, `${raw.name}文化线`),
+    `把${dayTwoFirst.name}作为第二天主线，重点看${dayTwoFirst.desc}；${dayTwoSecond ? `下午顺路补${dayTwoSecond.name}，` : "下午补一个市集、老街或湖岸散步，"}晚上就近安排${raw.foods[1] || food}，避免重复折返。`,
   ]);
 
-  if (firstRemote) {
+  const dayThreePoint =
+    getUnusedPoint(remotePoints, usedNames) ||
+    getUnusedPoint(allPoints, usedNames);
+
+  if (dayThreePoint) {
+    markUsed(usedNames, [dayThreePoint]);
+    const isRemote = remotePoints.includes(dayThreePoint);
     route.push([
       "Day 3",
-      `${firstRemote.name}一日游`,
-      `${firstRemote.name}距离和游览强度都更适合单独留一天，建议早出发；返程后不要再塞重体力景点，晚餐回到市区吃${raw.foods[1] || food}。`,
+      isRemote ? `${dayThreePoint.name}一日游` : `${dayThreePoint.name}深度游`,
+      `${dayThreePoint.name}${isRemote ? "距离和游览强度都更适合单独留一天" : "适合放慢节奏细看"}，重点体验${dayThreePoint.desc}；返程或收尾时不要再塞重体力景点，晚餐留给${raw.foods[2] || raw.foods[1] || food}。`,
     ]);
   } else {
     route.push([
       "Day 3",
-      `${mapPoints[mapPoints.length - 1].name} - ${night}`,
-      `第三天用来补${mapPoints[mapPoints.length - 1].name}和周边街区，下午留一点机动时间；晚上在${night}做最后一轮夜景和美食补完。`,
+      `${raw.name}街区与美食收尾`,
+      `第三天不再重复前两天的景点，上午留给还没逛完的街巷或展馆，下午安排伴手礼和咖啡馆；晚上以${raw.foods[2] || raw.foods[1] || food}收尾。`,
     ]);
   }
 
   if (profile.days >= 4) {
-    const dayFourPoint = secondRemote || mapPoints[mapPoints.length - 1];
+    const dayFourPoint =
+      getUnusedPoint(remotePoints, usedNames) ||
+      getUnusedPoint(allPoints, usedNames);
     route.push([
       "Day 4",
-      `${dayFourPoint.name}深度慢游`,
-      `${dayFourPoint.name}适合放到第四天，给交通、排队和拍照留余量；回城后选择${night}附近住宿或餐厅，减少折返。`,
+      dayFourPoint ? `${dayFourPoint.name}深度慢游` : `${raw.name}机动慢游`,
+      dayFourPoint
+        ? `${dayFourPoint.name}适合放到第四天，给交通、排队和拍照留余量；回城后选择顺路片区住宿或餐厅，减少折返。`
+        : "第四天保留给天气、预约时段和临时想加的展馆，尽量不重复前几天已走过的点位。",
     ]);
   }
 
@@ -1158,7 +1541,7 @@ function getWikiTitle(raw, province) {
     return specialWikiTitles[raw.id];
   }
 
-  if (province.board === "europe") {
+  if (province.board && province.board !== "china") {
     return raw.name;
   }
 
@@ -1189,7 +1572,7 @@ function buildCity(raw, province, index) {
     ...raw,
     board: province.board || "china",
     province: province.name,
-    groupType: province.board === "europe" ? "国家" : "省份",
+    groupType: province.board && province.board !== "china" ? "国家" : "省份",
     region: province.region,
     mapPoints,
     wikiTitle: getWikiTitle(raw, province),
@@ -1202,7 +1585,7 @@ function buildCity(raw, province, index) {
     facts: raw.facts || [
       ["建议天数", `${profile.days} 天`],
       ["行程判断", profile.pace],
-      [province.board === "europe" ? "所属国家" : "所属省份", province.name],
+      [province.board && province.board !== "china" ? "所属国家" : "所属省份", province.name],
     ],
     route: raw.route || buildRoute(raw, mapPoints, profile),
     places: raw.places || mapPoints.slice(0, 3).map((point) => [point.name, point.desc]),
@@ -1233,6 +1616,18 @@ const travelBoards = [
     name: "欧洲",
     groupLabel: "国家",
     groups: europeCountryGroups,
+  },
+  {
+    id: "southeast-asia",
+    name: "东南亚",
+    groupLabel: "国家",
+    groups: southeastAsiaCountryGroups,
+  },
+  {
+    id: "middle-east",
+    name: "中东",
+    groupLabel: "国家",
+    groups: middleEastCountryGroups,
   },
 ];
 
